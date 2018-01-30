@@ -328,14 +328,8 @@
 <li>输出目的地配置</li>
 <li>输出样式配置</li>
 </ul>
-<ol>
-<li>日志级别配置</li>
-</ol>
-<p>日志级别配置分为两种：根目录级别和包目录基本。<br>顾名思义，根目录级别就是定义总的日志级别，具体到某个特定的包路径下的类，还可以定制日志级别。<br>Log4j自定义的日志级别有：OFF &gt; FATAL &gt; ERROR &gt; WARN &gt; INFO &gt; DEBUG &gt; ALL<br>但是建议只使用ERROR &gt; WARN &gt; INFO &gt; DEBUG 这四种。通过在这里定义的级别，您可以控制到应用程序中相应级别的日志信息的开关。比如在这里定 义了 INFO 级别，则应用程序中所有 DEBUG 级别的日志信息将不被打印出来 。</p>
-<ol>
-<li>输出目的地配置</li>
-</ol>
-<p>定义输出目的地（appender），定义完成后需要配置根目录启用<br>Log4j 提供的 appender 有以下几种：</p>
+<h3 id="1-日志级别配置"><a href="#1-日志级别配置" class="headerlink" title="1. 日志级别配置"></a>1. 日志级别配置</h3><p>日志级别配置分为两种：根目录级别和包目录基本。<br>顾名思义，根目录级别就是定义总的日志级别，具体到某个特定的包路径下的类，还可以定制日志级别。<br>Log4j自定义的日志级别有：OFF &gt; FATAL &gt; ERROR &gt; WARN &gt; INFO &gt; DEBUG &gt; ALL<br>但是建议只使用ERROR &gt; WARN &gt; INFO &gt; DEBUG 这四种。通过在这里定义的级别，您可以控制到应用程序中相应级别的日志信息的开关。比如在这里定 义了 INFO 级别，则应用程序中所有 DEBUG 级别的日志信息将不被打印出来 。</p>
+<h3 id="2-输出目的地配置"><a href="#2-输出目的地配置" class="headerlink" title="2. 输出目的地配置"></a>2. 输出目的地配置</h3><p>定义输出目的地（appender），定义完成后需要配置根目录启用<br>Log4j 提供的 appender 有以下几种：</p>
 <ul>
 <li>org.apache.log4j.ConsoleAppender （控制台）</li>
 <li>org.apache.log4j.FileAppender （文件）</li>
@@ -343,10 +337,7 @@
 <li>org.apache.log4j.RollingFileAppender （文件大小到达指定尺寸的时候产生一个新的文件）</li>
 <li>org.apache.log4j.WriterAppender （将日志信息以流格式发送到任意指定的地方）</li>
 </ul>
-<ol>
-<li>输出样式配置</li>
-</ol>
-<p>定义日志样式，在输入目的地配置中使用</p>
+<h3 id="3-输出样式配置"><a href="#3-输出样式配置" class="headerlink" title="3. 输出样式配置"></a>3. 输出样式配置</h3><p>定义日志样式，在输入目的地配置中使用</p>
 <p>Log4j 提供的 layout 有以下4种：</p>
 <ul>
 <li>org.apache.log4j.HTMLLayout （以 HTML 表格形式布局）</li>
