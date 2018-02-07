@@ -88,7 +88,7 @@
 <meta property="og:description" content="题目：假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？动态规划解法：设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）设想一下，我们走到最后一步的时候，只有两种可能的走法： 走一步，正好走完10阶楼梯，前面走路9阶楼梯 走两步，正好走完10阶楼梯，前面走了8阶楼梯所以，走10阶楼梯的问题可以简化为，走9阶楼梯的走法，然后跨一步，">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2017/06/25/动态规划-走楼梯问题/运行结果.PNG">
-<meta property="og:updated_time" content="2018-02-07T15:44:31.130Z">
+<meta property="og:updated_time" content="2018-02-07T15:47:29.527Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动态规划------走楼梯问题">
 <meta name="twitter:description" content="题目：假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？动态规划解法：设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）设想一下，我们走到最后一步的时候，只有两种可能的走法： 走一步，正好走完10阶楼梯，前面走路9阶楼梯 走两步，正好走完10阶楼梯，前面走了8阶楼梯所以，走10阶楼梯的问题可以简化为，走9阶楼梯的走法，然后跨一步，">
@@ -312,11 +312,11 @@
       
 
       
-        <h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><h2 id="假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？"><a href="#假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？" class="headerlink" title="假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？"></a>假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？</h2><h1 id="动态规划解法："><a href="#动态规划解法：" class="headerlink" title="动态规划解法："></a>动态规划解法：</h1><h2 id="设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）"><a href="#设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）" class="headerlink" title="设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）"></a>设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）</h2><h2 id="设想一下，我们走到最后一步的时候，只有两种可能的走法："><a href="#设想一下，我们走到最后一步的时候，只有两种可能的走法：" class="headerlink" title="设想一下，我们走到最后一步的时候，只有两种可能的走法："></a>设想一下，我们走到最后一步的时候，只有两种可能的走法：</h2><ol>
+        <h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><h3 id="假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？"><a href="#假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？" class="headerlink" title="假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？"></a>假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？</h3><h1 id="动态规划解法："><a href="#动态规划解法：" class="headerlink" title="动态规划解法："></a>动态规划解法：</h1><h3 id="设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）"><a href="#设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）" class="headerlink" title="设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）"></a>设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）</h3><h3 id="设想一下，我们走到最后一步的时候，只有两种可能的走法："><a href="#设想一下，我们走到最后一步的时候，只有两种可能的走法：" class="headerlink" title="设想一下，我们走到最后一步的时候，只有两种可能的走法："></a>设想一下，我们走到最后一步的时候，只有两种可能的走法：</h3><ol>
 <li>走一步，正好走完10阶楼梯，前面走路9阶楼梯</li>
 <li>走两步，正好走完10阶楼梯，前面走了8阶楼梯<br>所以，走10阶楼梯的问题可以简化为，走9阶楼梯的走法<walk（9）>，然后跨一步，走完。或者走8阶楼梯的走法<walk（8）>，然后跨两步走完。<br>即<em>walk（10）=walk（9）+walk（8）</em></walk（8）></walk（9）></li>
 </ol>
-<h2 id="那么走9阶楼梯总共有多少种走法呢？"><a href="#那么走9阶楼梯总共有多少种走法呢？" class="headerlink" title="那么走9阶楼梯总共有多少种走法呢？"></a>那么走9阶楼梯总共有多少种走法呢？</h2><p>分析过程一样，假设已经走到最后一步，只能有两种可能的走法：</p>
+<h3 id="那么走9阶楼梯总共有多少种走法呢？"><a href="#那么走9阶楼梯总共有多少种走法呢？" class="headerlink" title="那么走9阶楼梯总共有多少种走法呢？"></a>那么走9阶楼梯总共有多少种走法呢？</h3><p>分析过程一样，假设已经走到最后一步，只能有两种可能的走法：</p>
 <ol>
 <li>走一步，正好走完9阶楼梯，前面走了8阶楼梯</li>
 <li>走两步，正好走完9阶楼梯，前面走了7阶楼梯<br>即<em>walk（9）=walk（8）+ walk（7）</em><br>……</li>
@@ -507,7 +507,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目："><span class="nav-number">1.</span> <span class="nav-text">题目：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？"><span class="nav-number">1.1.</span> <span class="nav-text">假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划解法："><span class="nav-number">2.</span> <span class="nav-text">动态规划解法：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）"><span class="nav-number">2.1.</span> <span class="nav-text">设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设想一下，我们走到最后一步的时候，只有两种可能的走法："><span class="nav-number">2.2.</span> <span class="nav-text">设想一下，我们走到最后一步的时候，只有两种可能的走法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#那么走9阶楼梯总共有多少种走法呢？"><span class="nav-number">2.3.</span> <span class="nav-text">那么走9阶楼梯总共有多少种走法呢？</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目："><span class="nav-number">1.</span> <span class="nav-text">题目：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？"><span class="nav-number">1.0.1.</span> <span class="nav-text">假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划解法："><span class="nav-number">2.</span> <span class="nav-text">动态规划解法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）"><span class="nav-number">2.0.1.</span> <span class="nav-text">设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设想一下，我们走到最后一步的时候，只有两种可能的走法："><span class="nav-number">2.0.2.</span> <span class="nav-text">设想一下，我们走到最后一步的时候，只有两种可能的走法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#那么走9阶楼梯总共有多少种走法呢？"><span class="nav-number">2.0.3.</span> <span class="nav-text">那么走9阶楼梯总共有多少种走法呢？</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
