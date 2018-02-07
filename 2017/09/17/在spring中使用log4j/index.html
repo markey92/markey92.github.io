@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="blog," />
 
 
 
@@ -79,13 +79,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="MaKai&#39;s zone">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="配置log4j属性log4j配置文件支持xml格式和properites格式，下面为例properites介绍需要配置的内容。配置文件分为三部分配置:  日志级别配置 输出目的地配置 输出样式配置  1. 日志级别配置日志级别配置分为两种：根目录级别和包目录基本。顾名思义，根目录级别就是定义总的日志级别，具体到某个特定的包路径下的类，还可以定制日志级别。Log4j自定义的日志级别有：OFF &amp;gt">
+<meta name="keywords" content="blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置log4j属性">
+<meta property="og:url" content="http://yoursite.com/2017/09/17/在spring中使用log4j/index.html">
 <meta property="og:site_name" content="MaKai&#39;s zone">
+<meta property="og:description" content="配置log4j属性log4j配置文件支持xml格式和properites格式，下面为例properites介绍需要配置的内容。配置文件分为三部分配置:  日志级别配置 输出目的地配置 输出样式配置  1. 日志级别配置日志级别配置分为两种：根目录级别和包目录基本。顾名思义，根目录级别就是定义总的日志级别，具体到某个特定的包路径下的类，还可以定制日志级别。Log4j自定义的日志级别有：OFF &amp;gt">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2017/09/17/在spring中使用log4j/log4j配置文件位置.png">
+<meta property="og:image" content="http://yoursite.com/2017/09/17/在spring中使用log4j/log4j配置文件路径.png">
+<meta property="og:updated_time" content="2018-02-07T15:40:35.552Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaKai&#39;s zone">
+<meta name="twitter:title" content="配置log4j属性">
+<meta name="twitter:description" content="配置log4j属性log4j配置文件支持xml格式和properites格式，下面为例properites介绍需要配置的内容。配置文件分为三部分配置:  日志级别配置 输出目的地配置 输出样式配置  1. 日志级别配置日志级别配置分为两种：根目录级别和包目录基本。顾名思义，根目录级别就是定义总的日志级别，具体到某个特定的包路径下的类，还可以定制日志级别。Log4j自定义的日志级别有：OFF &amp;gt">
+<meta name="twitter:image" content="http://yoursite.com/2017/09/17/在spring中使用log4j/log4j配置文件位置.png">
 
 
 
@@ -115,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/17/在spring中使用log4j/"/>
 
 
 
 
 
-  <title>MaKai's zone</title>
+  <title>配置log4j属性 | MaKai's zone</title>
   
 
 
@@ -140,8 +148,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,138 +221,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/28/Hello-World-0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MaKai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MaKai's zone">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/28/Hello-World-0/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-28T14:51:57+08:00">
-                2018-01-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/01/28/Hello-World-0/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/28/Hello-World-0/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -375,9 +253,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/17/在spring中使用log4j/" itemprop="url">配置log4j属性</a></h1>
+          <h1 class="post-title" itemprop="name headline">配置log4j属性</h1>
         
 
         <div class="post-meta">
@@ -459,9 +335,7 @@
       
 
       
-        
-          
-            <h2 id="配置log4j属性"><a href="#配置log4j属性" class="headerlink" title="配置log4j属性"></a>配置log4j属性</h2><p>log4j配置文件支持xml格式和properites格式，下面为例properites介绍需要配置的内容。<br>配置文件分为三部分配置:</p>
+        <h2 id="配置log4j属性"><a href="#配置log4j属性" class="headerlink" title="配置log4j属性"></a>配置log4j属性</h2><p>log4j配置文件支持xml格式和properites格式，下面为例properites介绍需要配置的内容。<br>配置文件分为三部分配置:</p>
 <ul>
 <li>日志级别配置</li>
 <li>输出目的地配置</li>
@@ -514,8 +388,6 @@
 <li><a href="m00381966@qq.com">联系我</a></li>
 </ul>
 
-          
-        
       
     </div>
     
@@ -530,148 +402,40 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/25/动态规划-走楼梯问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MaKai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MaKai's zone">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/25/动态规划-走楼梯问题/" itemprop="url">动态规划------走楼梯问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-25T23:27:44+08:00">
-                2017-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/blog/" rel="tag"># blog</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/06/25/动态规划-走楼梯问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/06/25/动态规划-走楼梯问题/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><h2 id="假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？"><a href="#假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？" class="headerlink" title="假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？"></a>假设有10阶楼梯，每次可以跨1阶或者2阶，请问走完10阶楼梯总共有多少种走法？</h2><h1 id="动态规划解法："><a href="#动态规划解法：" class="headerlink" title="动态规划解法："></a>动态规划解法：</h1><h2 id="设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）"><a href="#设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）" class="headerlink" title="设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）"></a>设定一个名为walk（num）的函数，其返回值为走n阶楼梯的走法，则问题为walk（10）</h2><h2 id="设想一下，我们走到最后一步的时候，只有两种可能的走法："><a href="#设想一下，我们走到最后一步的时候，只有两种可能的走法：" class="headerlink" title="设想一下，我们走到最后一步的时候，只有两种可能的走法："></a>设想一下，我们走到最后一步的时候，只有两种可能的走法：</h2><p>1 走一步，正好走完10阶楼梯，前面走路9阶楼梯<br>2 走两步，正好走完10阶楼梯，前面走了8阶楼梯<br>所以，走10阶楼梯的问题可以简化为，走9阶楼梯的走法<walk（9）>，然后跨一步，走完。或者走8阶楼梯的走法<walk（8）>，然后跨两步走完。<br>即<em>walk（10）=walk（9）+walk（8）</em></walk（8）></walk（9）></p>
-<h2 id="那么走9阶楼梯总共有多少种走法呢？"><a href="#那么走9阶楼梯总共有多少种走法呢？" class="headerlink" title="那么走9阶楼梯总共有多少种走法呢？"></a>那么走9阶楼梯总共有多少种走法呢？</h2><p>分析过程一样，假设已经走到最后一步，只能有两种可能的走法：<br>1 走一步，正好走完9阶楼梯，前面走了8阶楼梯<br>2 走两步，正好走完9阶楼梯，前面走了7阶楼梯<br>即<em>walk（9）=walk（8）+ walk（7）</em><br>……</p>
-<p>到最后：<br>如果要走1阶楼梯，则只有一种走法：跨一步，即walk（1）=1<br>如果要走2阶楼梯，则有两种走法：一步一阶或者一阶两阶，即walk（2）=2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">package com.markey.test;</span><br><span class="line"></span><br><span class="line">public class TakeStairs &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        for(int i=1; i&lt;11; i++)&#123;</span><br><span class="line">            System.out.println(&quot;步数为&quot;+i+&quot;:&quot;+JumpFloorII(i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public static int walk(int stair)&#123;</span><br><span class="line">        int num = 0;</span><br><span class="line">        if(stair &gt; 0)&#123;</span><br><span class="line">            switch (stair) &#123;</span><br><span class="line">                case 1:</span><br><span class="line">                    num = 1;</span><br><span class="line">                    break;</span><br><span class="line">                case 2:</span><br><span class="line">                    num = 2;</span><br><span class="line">                    break;</span><br><span class="line">                default:</span><br><span class="line">                    num = walk(stair-1)+walk(stair-2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return num;</span><br><span class="line">    &#125;</span><br><span class="line">    public static int JumpFloorII(int target) &#123;</span><br><span class="line">        int num = 0;</span><br><span class="line">        if (target &gt; 0) &#123;</span><br><span class="line">            if(target == 1)&#123;</span><br><span class="line">                return 1;</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                for (int i = target-1; i &gt;= 0; i--) &#123;</span><br><span class="line">                    num += JumpFloorII(i);</span><br><span class="line">                &#125;</span><br><span class="line">                num++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return num;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2017/06/25/动态规划-走楼梯问题/运行结果.PNG" alt="运行结果"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/25/动态规划-走楼梯问题/" rel="next" title="动态规划------走楼梯问题">
+                <i class="fa fa-chevron-left"></i> 动态规划------走楼梯问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/28/Hello-World-0/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </div>
@@ -681,10 +445,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -692,6 +457,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -712,8 +484,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -783,6 +564,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置log4j属性"><span class="nav-number">1.</span> <span class="nav-text">配置log4j属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-日志级别配置"><span class="nav-number">1.1.</span> <span class="nav-text">1. 日志级别配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-输出目的地配置"><span class="nav-number">1.2.</span> <span class="nav-text">2. 输出目的地配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-输出样式配置"><span class="nav-number">1.3.</span> <span class="nav-text">3. 输出样式配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载log4j配置文件"><span class="nav-number">2.</span> <span class="nav-text">加载log4j配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认加载"><span class="nav-number">2.1.</span> <span class="nav-text">默认加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手动加载"><span class="nav-number">2.2.</span> <span class="nav-text">手动加载</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -916,6 +713,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
