@@ -363,11 +363,12 @@
       
         
           
-          安装前准备
-安装docker
+          安装前准备安装docker
 
+检查是否已安装docker（docker version）
 
-          
+1234567891011121314151617root@VM-32-248-ubuntu:~# docker versionClient: Version:      1.13.1 API version
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/02/10/基于docker安装superset/#more" rel="contents">
@@ -535,10 +536,12 @@
       
         
           
-          安装前检查,查看Ubuntu版本Docker 要求 Ubuntu 系统的内核版本高于 3.10
+          安装前检查,查看Ubuntu版本Docker 要求 Ubuntu 系统的内核版本高于 3.10，并且是64位系统
 
 uname -a
-lsb_release -a123456789root@VM-32-248-ubuntu:uname -aLinux VM-32-248-ubuntu 4.4.0-53-generic
+lsb_release -a
+
+123456789root@VM-32-248-ubuntu:~# uname -aLinux VM-32-248-ubuntu 4.
           ...
           <!--noindex-->
           <div class="post-button text-center">
