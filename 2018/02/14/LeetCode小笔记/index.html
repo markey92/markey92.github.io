@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="MaKai&#39;s zone">
 <meta property="og:description" content="LeetCode 判断int类型计算后是否越界 java中int类型占4个字节，32位 取值范围为-2^31~2^31-1 (-2147483648~2147483647)  1234//判断int值计算前后是否相等，假设需要计算 result = x * 10if(result*10/10 != result)&amp;#123;    //越界&amp;#125; 反转int 遍历int的每个数字 输入123">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-15T05:19:54.860Z">
+<meta property="og:updated_time" content="2018-02-17T02:47:25.718Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode小笔记">
 <meta name="twitter:description" content="LeetCode 判断int类型计算后是否越界 java中int类型占4个字节，32位 取值范围为-2^31~2^31-1 (-2147483648~2147483647)  1234//判断int值计算前后是否相等，假设需要计算 result = x * 10if(result*10/10 != result)&amp;#123;    //越界&amp;#125; 反转int 遍历int的每个数字 输入123">
@@ -389,7 +389,10 @@
 <h1 id="二进制运算"><a href="#二进制运算" class="headerlink" title="二进制运算"></a>二进制运算</h1><ul>
 <li>取最高非0位（00001024的最高非0位是00001000）：Integer.highestOneBit(num)</li>
 <li>取掩码（00001024的掩码是00001111）：(Integer.highestOneBit(num) &lt;&lt; 1) - 1</li>
-<li>负数用补码表示，整数用正码表示，补码+正码=0（-5+5=0）；补码=（绝对值）二进制+1  再补正反位为1/。</li>
+<li>负数用补码表示，整数用正码表示，补码+正码=0（-5+5=0）；补码=（绝对值）二进制+1  再补正反位为1。</li>
+</ul>
+<h1 id="集合类转数组"><a href="#集合类转数组" class="headerlink" title="集合类转数组"></a>集合类转数组</h1><ul>
+<li>ArrayList.toArray();转化为</li>
 </ul>
 
       
@@ -589,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#判断int类型计算后是否越界"><span class="nav-number">1.</span> <span class="nav-text">判断int类型计算后是否越界</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反转int"><span class="nav-number">2.</span> <span class="nav-text">反转int</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#char字符和int之间的转化"><span class="nav-number">3.</span> <span class="nav-text">char字符和int之间的转化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#判断字符串中是否有某个字符"><span class="nav-number">4.</span> <span class="nav-text">判断字符串中是否有某个字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java中的length、length-、size"><span class="nav-number">5.</span> <span class="nav-text">Java中的length、length()、size()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二进制运算"><span class="nav-number">6.</span> <span class="nav-text">二进制运算</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#判断int类型计算后是否越界"><span class="nav-number">1.</span> <span class="nav-text">判断int类型计算后是否越界</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反转int"><span class="nav-number">2.</span> <span class="nav-text">反转int</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#char字符和int之间的转化"><span class="nav-number">3.</span> <span class="nav-text">char字符和int之间的转化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#判断字符串中是否有某个字符"><span class="nav-number">4.</span> <span class="nav-text">判断字符串中是否有某个字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java中的length、length-、size"><span class="nav-number">5.</span> <span class="nav-text">Java中的length、length()、size()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二进制运算"><span class="nav-number">6.</span> <span class="nav-text">二进制运算</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合类转数组"><span class="nav-number">7.</span> <span class="nav-text">集合类转数组</span></a></li></ol></div>
             
 
           </div>
