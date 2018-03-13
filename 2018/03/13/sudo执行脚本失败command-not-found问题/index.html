@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="java,log," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,21 +79,17 @@
 
 
 
-<meta name="description" content="配置log4j属性log4j配置文件支持xml格式和properites格式，下面为例properites介绍需要配置的内容。配置文件分为三部分配置:  日志级别配置 输出目的地配置 输出样式配置  1. 日志级别配置日志级别配置分为两种：根目录级别和包目录基本。顾名思义，根目录级别就是定义总的日志级别，具体到某个特定的包路径下的类，还可以定制日志级别。Log4j自定义的日志级别有：OFF &amp;gt">
-<meta name="keywords" content="java,log">
+<meta name="description" content="背景：我们的项目使用了superset（Airbnb开源的数据挖掘平台），superset的运行需要python2.7环境，以前项目部署时候都是手动安装python2.7，然后再安装产品。最近接了一个自动升级python的需求，在开发过程中被linux的环境变量坑了一会。  问题1：Python2.7安装完后，为什么执行python -V 还是2.6 问题2：安装过程中进行Python编译，包ma">
 <meta property="og:type" content="article">
-<meta property="og:title" content="配置log4j属性">
-<meta property="og:url" content="http://yoursite.com/2017/09/17/在spring中使用log4j/index.html">
+<meta property="og:title" content="sudo执行脚本失败command not found问题">
+<meta property="og:url" content="http://yoursite.com/2018/03/13/sudo执行脚本失败command-not-found问题/index.html">
 <meta property="og:site_name" content="MaKai&#39;s zone">
-<meta property="og:description" content="配置log4j属性log4j配置文件支持xml格式和properites格式，下面为例properites介绍需要配置的内容。配置文件分为三部分配置:  日志级别配置 输出目的地配置 输出样式配置  1. 日志级别配置日志级别配置分为两种：根目录级别和包目录基本。顾名思义，根目录级别就是定义总的日志级别，具体到某个特定的包路径下的类，还可以定制日志级别。Log4j自定义的日志级别有：OFF &amp;gt">
+<meta property="og:description" content="背景：我们的项目使用了superset（Airbnb开源的数据挖掘平台），superset的运行需要python2.7环境，以前项目部署时候都是手动安装python2.7，然后再安装产品。最近接了一个自动升级python的需求，在开发过程中被linux的环境变量坑了一会。  问题1：Python2.7安装完后，为什么执行python -V 还是2.6 问题2：安装过程中进行Python编译，包ma">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/09/17/在spring中使用log4j/log4j配置文件位置.png">
-<meta property="og:image" content="http://yoursite.com/2017/09/17/在spring中使用log4j/log4j配置文件路径.png">
-<meta property="og:updated_time" content="2018-02-07T16:28:41.230Z">
+<meta property="og:updated_time" content="2018-03-13T15:08:41.877Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="配置log4j属性">
-<meta name="twitter:description" content="配置log4j属性log4j配置文件支持xml格式和properites格式，下面为例properites介绍需要配置的内容。配置文件分为三部分配置:  日志级别配置 输出目的地配置 输出样式配置  1. 日志级别配置日志级别配置分为两种：根目录级别和包目录基本。顾名思义，根目录级别就是定义总的日志级别，具体到某个特定的包路径下的类，还可以定制日志级别。Log4j自定义的日志级别有：OFF &amp;gt">
-<meta name="twitter:image" content="http://yoursite.com/2017/09/17/在spring中使用log4j/log4j配置文件位置.png">
+<meta name="twitter:title" content="sudo执行脚本失败command not found问题">
+<meta name="twitter:description" content="背景：我们的项目使用了superset（Airbnb开源的数据挖掘平台），superset的运行需要python2.7环境，以前项目部署时候都是手动安装python2.7，然后再安装产品。最近接了一个自动升级python的需求，在开发过程中被linux的环境变量坑了一会。  问题1：Python2.7安装完后，为什么执行python -V 还是2.6 问题2：安装过程中进行Python编译，包ma">
 
 
 
@@ -123,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/17/在spring中使用log4j/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/13/sudo执行脚本失败command-not-found问题/"/>
 
 
 
 
 
-  <title>配置log4j属性 | MaKai's zone</title>
+  <title>sudo执行脚本失败command not found问题 | MaKai's zone</title>
   
 
 
@@ -266,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/17/在spring中使用log4j/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/13/sudo执行脚本失败command-not-found问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MaKai">
@@ -283,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">配置log4j属性</h1>
+          <h1 class="post-title" itemprop="name headline">sudo执行脚本失败command not found问题</h1>
         
 
         <div class="post-meta">
@@ -295,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T14:53:00+08:00">
-                2017-09-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T23:04:45+08:00">
+                2018-03-13
               </time>
             
 
@@ -306,28 +302,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/日常知识点/" itemprop="url" rel="index">
-                    <span itemprop="name">日常知识点</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -336,8 +310,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/09/17/在spring中使用log4j/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/09/17/在spring中使用log4j/" itemprop="commentCount"></span>
+                <a href="/2018/03/13/sudo执行脚本失败command-not-found问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/13/sudo执行脚本失败command-not-found问题/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -345,7 +319,7 @@
 
           
           
-             <span id="/2017/09/17/在spring中使用log4j/" class="leancloud_visitors" data-flag-title="配置log4j属性">
+             <span id="/2018/03/13/sudo执行脚本失败command-not-found问题/" class="leancloud_visitors" data-flag-title="sudo执行脚本失败command not found问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -376,58 +350,54 @@
       
 
       
-        <h2 id="配置log4j属性"><a href="#配置log4j属性" class="headerlink" title="配置log4j属性"></a>配置log4j属性</h2><p>log4j配置文件支持xml格式和properites格式，下面为例properites介绍需要配置的内容。<br>配置文件分为三部分配置:</p>
+        <p>背景：我们的项目使用了superset（Airbnb开源的数据挖掘平台），superset的运行需要python2.7环境，以前项目部署时候都是手动安装python2.7，然后再安装产品。最近接了一个自动升级python的需求，在开发过程中被linux的环境变量坑了一会。</p>
 <ul>
-<li>日志级别配置</li>
-<li>输出目的地配置</li>
-<li>输出样式配置</li>
+<li>问题1：Python2.7安装完后，为什么执行python -V 还是2.6</li>
+<li>问题2：安装过程中进行Python编译，包make命令command not found是什么鬼？</li>
 </ul>
-<h3 id="1-日志级别配置"><a href="#1-日志级别配置" class="headerlink" title="1. 日志级别配置"></a>1. 日志级别配置</h3><p>日志级别配置分为两种：根目录级别和包目录基本。<br>顾名思义，根目录级别就是定义总的日志级别，具体到某个特定的包路径下的类，还可以定制日志级别。<br>Log4j自定义的日志级别有：OFF &gt; FATAL &gt; ERROR &gt; WARN &gt; INFO &gt; DEBUG &gt; ALL<br>但是建议只使用ERROR &gt; WARN &gt; INFO &gt; DEBUG 这四种。通过在这里定义的级别，您可以控制到应用程序中相应级别的日志信息的开关。比如在这里定 义了 INFO 级别，则应用程序中所有 DEBUG 级别的日志信息将不被打印出来 。</p>
-<h3 id="2-输出目的地配置"><a href="#2-输出目的地配置" class="headerlink" title="2. 输出目的地配置"></a>2. 输出目的地配置</h3><p>定义输出目的地（appender），定义完成后需要配置根目录启用<br>Log4j 提供的 appender 有以下几种：</p>
+<p>Linux的环境变量一般是这样的（执行echo $PATH）：/sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/usr/games:/opt/setsuse/SEK/Tcl</p>
+<p>其中/usr/local/bin放的的用户安装软件的命令目录，/usr/bin放的是系统自带软件的命令目录。<br>也就是说，执行命令的时候会先/usr/local/bin中查找命令是否存在，存在则执行，不存在再继续往下一个目录查找。如果所有目录都找不到命令，就会报命令找不到错误。（所以一般出现command not found，先检查环境变量）</p>
+<p>但是如果处于各种各样的原因，（人工或者一些系统配置）修改了环境变量，或者多个目录下存在命令的情况，那么命令执行就会出现奇怪的问题了。</p>
+<p><strong><em>以上背景内容可忽略</em></strong></p>
 <ul>
-<li>org.apache.log4j.ConsoleAppender （控制台）</li>
-<li>org.apache.log4j.FileAppender （文件）</li>
-<li>org.apache.log4j.DailyRollingFileAppender （每天产生一个日志文件）</li>
-<li>org.apache.log4j.RollingFileAppender （文件大小到达指定尺寸的时候产生一个新的文件）</li>
-<li>org.apache.log4j.WriterAppender （将日志信息以流格式发送到任意指定的地方）</li>
+<li><h3 id="为什么安装完Python2-7后执行python-V还是2-6"><a href="#为什么安装完Python2-7后执行python-V还是2-6" class="headerlink" title="为什么安装完Python2.7后执行python -V还是2.6"></a>为什么安装完Python2.7后执行python -V还是2.6</h3>因为/usr/bin中有一个python软链接，指向Python2.6（系统自带），如果在命令行直接执行python -V，会先在/usr/bin执行python(指向Python2.6)，所以调用到的其实还是Python2.6。</li>
 </ul>
-<h3 id="3-输出样式配置"><a href="#3-输出样式配置" class="headerlink" title="3. 输出样式配置"></a>3. 输出样式配置</h3><p>定义日志样式，在输入目的地配置中使用</p>
-<p>Log4j 提供的 layout 有以下4种：</p>
+<p>解决方案：</p>
+<ol>
+<li>执行命令的时候加上安装目录：</li>
+</ol>
+<p>/usr/local/bin是python2.7的默认安装目录，如果安装时候更改了安装目录，则换成安装的那个目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/bin/python -V</span><br><span class="line">Python 2.7.2</span><br></pre></td></tr></table></figure>
+<ol>
+<li>或者修改/usr/bin下的python软链接，让其执行python2.7： </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm /usr/bin/python</span><br><span class="line">ln -s /usr/local/bin/python2.7 /usr/bin/python</span><br><span class="line">python -V</span><br><span class="line">Python 2.7.2</span><br></pre></td></tr></table></figure>
 <ul>
-<li>org.apache.log4j.HTMLLayout （以 HTML 表格形式布局）</li>
-<li>org.apache.log4j.PatternLayout （可以灵活地指定布局模式）</li>
-<li>org.apache.log4j.SimpleLayout （包含日志信息的级别和信息字符串）</li>
-<li>org.apache.log4j.TTCCLayout （包含日志产生的时间、线程、类别等等信息）</li>
+<li><h3 id="为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo-make-command-not-found"><a href="#为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo-make-command-not-found" class="headerlink" title="为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo make command not found"></a>为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo make command not found</h3></li>
 </ul>
-<p>Log4J 采用类似 C 语言中的 printf 函数的打印格式格式化日志信息，打印参数如下</p>
-<ul>
-<li>%m 输出代码中指定的消息</li>
-<li>%p 输出优先级，即 DEBUG ， INFO ， WARN ， ERROR ， FATAL</li>
-<li>%r 输出自应用启动到输出该 log 信息耗费的毫秒数</li>
-<li>%c 输出所属的类目，通常就是所在类的全名</li>
-<li>%t 输出产生该日志事件的线程名</li>
-<li>%n 输出一个回车换行符， Windows 平台为 “rn” ， Unix 平台为 “n”</li>
-<li>%d 输出日志时间点的日期或时间，默认格式为 ISO8601 ，也可以在其后指定格式，比如： %d{yyy MMM dd HH:mm:ss,SSS} ，输出类似： 2002 年 10 月 18 日 22 ： 10 ： 28 ， 921</li>
-<li>%l 输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。举例： Testlog4.main(TestLog4.java:10)</li>
-</ul>
-<p>Log4j还有其他一些配置：</p>
-<ul>
-<li>指定输出到文件的日志级别：</li>
-<li>指定输出文件路径</li>
-<li>指定输出日志中的日期格式</li>
-<li>指定日志日志文件写入方式是否为文件后追加</li>
-<li>指定日志编码</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">log4j.rootLogger=info,stdout,errorfile,infofile ###格式为[level] ,appender1，appender2，……</span><br><span class="line">log4j.logger.com.markey.messageboard=DEBUG</span><br><span class="line">log4j.logger.com.markey.messageboard.springtest=info</span><br><span class="line"></span><br><span class="line">#console config</span><br><span class="line">log4j.appender.stdout=org.apache.log4j.ConsoleAppender ###定义一个控制台输出目的地</span><br><span class="line">log4j.appender.stdout.layout=org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.stdout.layout.ConversionPattern=%m%n</span><br><span class="line">log4j.appender.stdout.encoding=GB18030</span><br><span class="line"></span><br><span class="line">#errorfile config</span><br><span class="line">log4j.appender.errorfile=org.apache.log4j.DailyRollingFileAppender ###定义一个每日日志输出目的地</span><br><span class="line">log4j.appender.errorfile.File= c:/logs/app_logs/error.log ###输出文件路径</span><br><span class="line">log4j.appender.errorfile.Threshold=error  ###只有error以上级别的日志才会被输出</span><br><span class="line">log4j.appender.errorfile.DatePattern=&apos;.&apos;yyyy-MM-dd ###指定日期格式</span><br><span class="line">log4j.appender.errorfile.Append=true ###指定日志文件以追加方式写入</span><br><span class="line">log4j.appender.errorfile.layout=org.apache.log4j.PatternLayout </span><br><span class="line">log4j.appender.errorfile.layout.ConversionPattern=[%-5p]|%d|%C|%L|%m%n</span><br><span class="line">log4j.appender.errorfile.encoding=GB18030 ###指定日志文件编码</span><br><span class="line"></span><br><span class="line">#infofile config</span><br><span class="line">log4j.appender.infofile=org.apache.log4j.DailyRollingFileAppender </span><br><span class="line">log4j.appender.infofile.File=c:/logs/app_logs/info.log</span><br><span class="line">log4j.appender.infofile.Threshold=info ###只有error以上级别的日志才会被输出</span><br><span class="line">log4j.appender.infofile.DatePattern=&apos;.&apos;yyyy-MM-dd</span><br><span class="line">log4j.appender.infofile.Append=true</span><br><span class="line">log4j.appender.infofile.layout=org.apache.log4j.PatternLayout </span><br><span class="line">log4j.appender.infofile.layout.ConversionPattern=[%-5p]|%d|%C|%L|%m%n</span><br><span class="line">log4j.additivity.infofile=false</span><br><span class="line">log4j.appender.infofile.encoding=GB18030</span><br></pre></td></tr></table></figure>
-<h2 id="加载log4j配置文件"><a href="#加载log4j配置文件" class="headerlink" title="加载log4j配置文件"></a>加载log4j配置文件</h2><h3 id="默认加载"><a href="#默认加载" class="headerlink" title="默认加载"></a>默认加载</h3><p>将log4j.properites文件放在src目录下，log4j框架会自动加载配置文件并应用。<br>例如我的配置文件放在如下位置，则无需其他配置，会被自动加载。</p>
-<p><img src="/2017/09/17/在spring中使用log4j/log4j配置文件位置.png" alt="log4j配置文件位置"></p>
-<h3 id="手动加载"><a href="#手动加载" class="headerlink" title="手动加载"></a>手动加载</h3><p>如果想要使用相对路径加载配置文件，则需要使用到log4j-core中的ConfigurationSource类和Configurator类。<br>例如我把配置文件放在如下src目录下代码的一级目录com下：</p>
-<p>则需要手动进行配置文件的加载，主要逻辑就是：根据相对路劲找到配置文件，使用log4j的配置文件加载器Configurator来加载。</p>
-<p><img src="/2017/09/17/在spring中使用log4j/log4j配置文件路径.png" alt="log4j配置文件路径"></p>
-<ul>
-<li><a href="http://markey.cc" target="_blank" rel="noopener">作者blog</a> </li>
-<li><a href="m00381966@qq.com">联系我</a></li>
-</ul>
+<p>因为linux使用sudo执行脚本，在运行脚本内容的shell中，环境变量发生了改变。<br>做个实验：写一个bash脚本path.sh，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo $PATH</span><br><span class="line">sudo ./path.sh</span><br><span class="line">/usr/bin:/bin:/usr/sbin:/sbin</span><br><span class="line">sudo echo $PATH</span><br><span class="line">/sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/usr/games:/opt/setsuse/SEK/Tcl</span><br></pre></td></tr></table></figure>
+<p>直接执行sudo和sudo执行脚本使用的环境变量是不一样的。所以，可能出现找不到命令的情况。<br>因为linux在sudo执行脚本的时候，会将shell的环境变量重置。（下方的env_reset配置）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo -l</span><br><span class="line">Matching Defaults entries for root on this host:</span><br><span class="line">always_set_home, env_reset, env_keep=”LANG LC_ADDRESS LC_CTYPE LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES LC_MONETARY</span><br><span class="line">LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE LC_TIME LC_ALL LANGUAGE LINGUAS XDG_SESSION_COOKIE”, targetpw</span><br><span class="line">Runas and Command-specific defaults for root:</span><br><span class="line">Defaults&gt;root syslog=auth</span><br><span class="line">User root may run the following commands on this host:</span><br><span class="line">(ALL) ALL</span><br><span class="line">(ALL) ALL</span><br></pre></td></tr></table></figure>
+<p>解决方案：各有利弊</p>
+<ol>
+<li>在脚本中加入环境变量配置</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">PATH=$PATH:/usr/local/bin/:/usr/local/sbin</span><br><span class="line">export PATH</span><br><span class="line">echo $PATH</span><br><span class="line">sudo ./path.sh</span><br><span class="line">/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin/:/usr/local/sbin</span><br><span class="line">##/usr/local/bin/:/usr/local/sbin为在脚本中配置的环境变量</span><br></pre></td></tr></table></figure>
+<p>优点：方便快捷<br>弊端：如果在脚本中，使用sudo 去调用其他脚本，其他脚本也要再次配置$PATH,否则一样会找不到命令</p>
+<ol>
+<li>使用sudo执行脚本带上“-E”参数，则执行脚本内容时会带上当前shell的环境变量</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo -E ./path.sh</span><br><span class="line">/sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/usr/games:/opt/setsuse/SEK/Tcl</span><br></pre></td></tr></table></figure>
+<p>优点：方便快捷<br>弊端：同样的，如果在脚本中需要sudo调用其他脚本，也要带上“-E”参数</p>
+<ol>
+<li>在脚本中执行命令带上安装目录，就像上个问题中解决python找不到2.7问题是一样的原理。</li>
+</ol>
+<p>优点：一般不会再出现command not found问题<br>弊端：增加脚本复杂度，每个命令都要知道其安装目录</p>
+<ol>
+<li>在/usr/bin中使用软链接，跳转到命令所在目录。就像上个问题中增加python软链接到python2.7一样。</li>
+</ol>
+<p>优点：一般不会再出现command not found问题，而且其他地方也可以使用。<br>弊端：需要提前知道要使用的命令，当时加上一次之后，所有脚本都可以使用。</p>
 
       
     </div>
@@ -442,14 +412,6 @@
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/java/" rel="tag"># java</a>
-          
-            <a href="/tags/log/" rel="tag"># log</a>
-          
-        </div>
       
 
       
@@ -475,8 +437,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/25/动态规划-走楼梯问题/" rel="next" title="动态规划------走楼梯问题">
-                <i class="fa fa-chevron-left"></i> 动态规划------走楼梯问题
+              <a href="/2018/02/18/hexo的那些坑儿/" rel="next" title="hexo的那些坑儿">
+                <i class="fa fa-chevron-left"></i> hexo的那些坑儿
               </a>
             
           </div>
@@ -484,10 +446,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/28/Hello-World-0/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -632,7 +590,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置log4j属性"><span class="nav-number">1.</span> <span class="nav-text">配置log4j属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-日志级别配置"><span class="nav-number">1.1.</span> <span class="nav-text">1. 日志级别配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-输出目的地配置"><span class="nav-number">1.2.</span> <span class="nav-text">2. 输出目的地配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-输出样式配置"><span class="nav-number">1.3.</span> <span class="nav-text">3. 输出样式配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载log4j配置文件"><span class="nav-number">2.</span> <span class="nav-text">加载log4j配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认加载"><span class="nav-number">2.1.</span> <span class="nav-text">默认加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手动加载"><span class="nav-number">2.2.</span> <span class="nav-text">手动加载</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么安装完Python2-7后执行python-V还是2-6"><span class="nav-number">1.</span> <span class="nav-text">为什么安装完Python2.7后执行python -V还是2.6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo-make-command-not-found"><span class="nav-number">2.</span> <span class="nav-text">为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo make command not found</span></a></li></ol></div>
             
 
           </div>
