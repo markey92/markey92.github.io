@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="linux,bash," />
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="背景：我们的项目使用了superset（Airbnb开源的数据挖掘平台），superset的运行需要python2.7环境，以前项目部署时候都是手动安装python2.7，然后再安装产品。最近接了一个自动升级python的需求，在开发过程中被linux的环境变量坑了一会。  问题1：Python2.7安装完后，为什么执行python -V 还是2.6 问题2：安装过程中进行Python编译，包ma">
+<meta name="keywords" content="linux,bash">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sudo执行脚本失败command not found问题">
 <meta property="og:url" content="http://yoursite.com/2018/03/13/sudo执行脚本失败command-not-found问题/index.html">
 <meta property="og:site_name" content="MaKai&#39;s zone">
 <meta property="og:description" content="背景：我们的项目使用了superset（Airbnb开源的数据挖掘平台），superset的运行需要python2.7环境，以前项目部署时候都是手动安装python2.7，然后再安装产品。最近接了一个自动升级python的需求，在开发过程中被linux的环境变量坑了一会。  问题1：Python2.7安装完后，为什么执行python -V 还是2.6 问题2：安装过程中进行Python编译，包ma">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-13T15:08:41.877Z">
+<meta property="og:updated_time" content="2018-03-13T15:11:39.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sudo执行脚本失败command not found问题">
 <meta name="twitter:description" content="背景：我们的项目使用了superset（Airbnb开源的数据挖掘平台），superset的运行需要python2.7环境，以前项目部署时候都是手动安装python2.7，然后再安装产品。最近接了一个自动升级python的需求，在开发过程中被linux的环境变量坑了一会。  问题1：Python2.7安装完后，为什么执行python -V 还是2.6 问题2：安装过程中进行Python编译，包ma">
@@ -302,6 +303,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常知识点/" itemprop="url" rel="index">
+                    <span itemprop="name">日常知识点</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -359,9 +382,7 @@
 <p>其中/usr/local/bin放的的用户安装软件的命令目录，/usr/bin放的是系统自带软件的命令目录。<br>也就是说，执行命令的时候会先/usr/local/bin中查找命令是否存在，存在则执行，不存在再继续往下一个目录查找。如果所有目录都找不到命令，就会报命令找不到错误。（所以一般出现command not found，先检查环境变量）</p>
 <p>但是如果处于各种各样的原因，（人工或者一些系统配置）修改了环境变量，或者多个目录下存在命令的情况，那么命令执行就会出现奇怪的问题了。</p>
 <p><strong><em>以上背景内容可忽略</em></strong></p>
-<ul>
-<li><h3 id="为什么安装完Python2-7后执行python-V还是2-6"><a href="#为什么安装完Python2-7后执行python-V还是2-6" class="headerlink" title="为什么安装完Python2.7后执行python -V还是2.6"></a>为什么安装完Python2.7后执行python -V还是2.6</h3>因为/usr/bin中有一个python软链接，指向Python2.6（系统自带），如果在命令行直接执行python -V，会先在/usr/bin执行python(指向Python2.6)，所以调用到的其实还是Python2.6。</li>
-</ul>
+<h3 id="为什么安装完Python2-7后执行python-V还是2-6"><a href="#为什么安装完Python2-7后执行python-V还是2-6" class="headerlink" title="为什么安装完Python2.7后执行python -V还是2.6"></a>为什么安装完Python2.7后执行python -V还是2.6</h3><p>因为/usr/bin中有一个python软链接，指向Python2.6（系统自带），如果在命令行直接执行python -V，会先在/usr/bin执行python(指向Python2.6)，所以调用到的其实还是Python2.6。</p>
 <p>解决方案：</p>
 <ol>
 <li>执行命令的时候加上安装目录：</li>
@@ -372,12 +393,10 @@
 <li>或者修改/usr/bin下的python软链接，让其执行python2.7： </li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm /usr/bin/python</span><br><span class="line">ln -s /usr/local/bin/python2.7 /usr/bin/python</span><br><span class="line">python -V</span><br><span class="line">Python 2.7.2</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo-make-command-not-found"><a href="#为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo-make-command-not-found" class="headerlink" title="为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo make command not found"></a>为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo make command not found</h3></li>
-</ul>
-<p>因为linux使用sudo执行脚本，在运行脚本内容的shell中，环境变量发生了改变。<br>做个实验：写一个bash脚本path.sh，内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo $PATH</span><br><span class="line">sudo ./path.sh</span><br><span class="line">/usr/bin:/bin:/usr/sbin:/sbin</span><br><span class="line">sudo echo $PATH</span><br><span class="line">/sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/usr/games:/opt/setsuse/SEK/Tcl</span><br></pre></td></tr></table></figure>
-<p>直接执行sudo和sudo执行脚本使用的环境变量是不一样的。所以，可能出现找不到命令的情况。<br>因为linux在sudo执行脚本的时候，会将shell的环境变量重置。（下方的env_reset配置）</p>
+<h3 id="为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo-make-command-not-found"><a href="#为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo-make-command-not-found" class="headerlink" title="为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo make command not found"></a>为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo make command not found</h3><p>因为linux使用sudo执行脚本，在运行脚本内容的shell中，环境变量发生了改变。<br>做个实验：写一个bash脚本path.sh，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo $PATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo ./path.sh</span><br><span class="line">/usr/bin:/bin:/usr/sbin:/sbin</span><br><span class="line">sudo echo $PATH</span><br><span class="line">/sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/usr/games:/opt/setsuse/SEK/Tcl</span><br></pre></td></tr></table></figure>
+<p>直接执行sudo和sudo执行脚本使用的环境变量是不一样的。这就是sudo执行脚本找不到命令的原因。<br>因为linux在sudo执行脚本的时候，会将shell的环境变量重置。（下方的env_reset配置）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo -l</span><br><span class="line">Matching Defaults entries for root on this host:</span><br><span class="line">always_set_home, env_reset, env_keep=”LANG LC_ADDRESS LC_CTYPE LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES LC_MONETARY</span><br><span class="line">LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE LC_TIME LC_ALL LANGUAGE LINGUAS XDG_SESSION_COOKIE”, targetpw</span><br><span class="line">Runas and Command-specific defaults for root:</span><br><span class="line">Defaults&gt;root syslog=auth</span><br><span class="line">User root may run the following commands on this host:</span><br><span class="line">(ALL) ALL</span><br><span class="line">(ALL) ALL</span><br></pre></td></tr></table></figure>
 <p>解决方案：各有利弊</p>
 <ol>
@@ -412,6 +431,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/bash/" rel="tag"># bash</a>
+          
+        </div>
       
 
       
@@ -547,7 +574,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
