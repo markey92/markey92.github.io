@@ -82,14 +82,14 @@
 <meta name="description" content="背景：我们的项目使用了superset（Airbnb开源的数据挖掘平台），superset的运行需要python2.7环境，以前项目部署时候都是手动安装python2.7，然后再安装产品。最近接了一个自动升级python的需求，在开发过程中被linux的环境变量坑了一会。  问题1：Python2.7安装完后，为什么执行python -V 还是2.6 问题2：安装过程中进行Python编译，包ma">
 <meta name="keywords" content="linux,bash">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sudo执行脚本失败command not found问题">
+<meta property="og:title" content="bash脚本执行失败问题">
 <meta property="og:url" content="http://yoursite.com/2018/03/13/sudo执行脚本失败command-not-found问题/index.html">
 <meta property="og:site_name" content="MaKai&#39;s zone">
 <meta property="og:description" content="背景：我们的项目使用了superset（Airbnb开源的数据挖掘平台），superset的运行需要python2.7环境，以前项目部署时候都是手动安装python2.7，然后再安装产品。最近接了一个自动升级python的需求，在开发过程中被linux的环境变量坑了一会。  问题1：Python2.7安装完后，为什么执行python -V 还是2.6 问题2：安装过程中进行Python编译，包ma">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-13T15:39:11.601Z">
+<meta property="og:updated_time" content="2018-03-24T10:20:36.633Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sudo执行脚本失败command not found问题">
+<meta name="twitter:title" content="bash脚本执行失败问题">
 <meta name="twitter:description" content="背景：我们的项目使用了superset（Airbnb开源的数据挖掘平台），superset的运行需要python2.7环境，以前项目部署时候都是手动安装python2.7，然后再安装产品。最近接了一个自动升级python的需求，在开发过程中被linux的环境变量坑了一会。  问题1：Python2.7安装完后，为什么执行python -V 还是2.6 问题2：安装过程中进行Python编译，包ma">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>sudo执行脚本失败command not found问题 | MaKai's zone</title>
+  <title>bash脚本执行失败问题 | MaKai's zone</title>
   
 
 
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">sudo执行脚本失败command not found问题</h1>
+          <h1 class="post-title" itemprop="name headline">bash脚本执行失败问题</h1>
         
 
         <div class="post-meta">
@@ -342,7 +342,7 @@
 
           
           
-             <span id="/2018/03/13/sudo执行脚本失败command-not-found问题/" class="leancloud_visitors" data-flag-title="sudo执行脚本失败command not found问题">
+             <span id="/2018/03/13/sudo执行脚本失败command-not-found问题/" class="leancloud_visitors" data-flag-title="bash脚本执行失败问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -400,6 +400,21 @@
 <p>优点：方便快捷<br>弊端：同样的，如果在脚本中需要sudo调用其他脚本，也要带上“-E”参数</p>
 <h3 id="方案3：在脚本中执行命令带上安装目录，就像上个问题中解决python找不到2-7问题是一样的原理。"><a href="#方案3：在脚本中执行命令带上安装目录，就像上个问题中解决python找不到2-7问题是一样的原理。" class="headerlink" title="方案3：在脚本中执行命令带上安装目录，就像上个问题中解决python找不到2.7问题是一样的原理。"></a>方案3：在脚本中执行命令带上安装目录，就像上个问题中解决python找不到2.7问题是一样的原理。</h3><p>优点：一般不会再出现command not found问题<br>弊端：增加脚本复杂度，每个命令都要知道其安装目录</p>
 <h3 id="方案4：在-usr-bin中使用软链接，跳转到命令所在目录。就像上个问题中增加python软链接到python2-7一样。"><a href="#方案4：在-usr-bin中使用软链接，跳转到命令所在目录。就像上个问题中增加python软链接到python2-7一样。" class="headerlink" title="方案4：在/usr/bin中使用软链接，跳转到命令所在目录。就像上个问题中增加python软链接到python2.7一样。"></a>方案4：在/usr/bin中使用软链接，跳转到命令所在目录。就像上个问题中增加python软链接到python2.7一样。</h3><p>优点：一般不会再出现command not found问题，而且其他地方也可以使用。<br>弊端：需要提前知道要使用的命令，当时加上一次之后，所有脚本都可以使用。</p>
+<hr>
+<h2 id="为什么unzip解压命令没有用？"><a href="#为什么unzip解压命令没有用？" class="headerlink" title="为什么unzip解压命令没有用？"></a>为什么unzip解压命令没有用？</h2><p>在一个安装python的脚本需要解压文件进行编译，但是发现第一次执行解压、编译没问题，但是后面就编译失败了，苦思无解。幸好有个大神指出了问题所在。<br>在bash脚本执行写作过程中，特别要注意一些 <em>有可能</em> 需要交互的命令。</p>
+<p>例如unzip，如果解压文件已存在，则会提示是否进行覆盖，此时如果没有在bash脚本中进行输入，则会shell会一直等待输入至命令超时（命令等待超时后的动作视不同实现决定）。</p>
+<p>解决方案：</p>
+<ul>
+<li>熟悉命令的不同参数，一般都会有规避方法。例如unzip 有参数-o 表示强制覆盖</li>
+<li>也有一些自动输入的方式，例如</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;abc&apos; | unzip xxxx</span><br></pre></td></tr></table></figure>
+<h2 id="为什么有一些脚本执行到一半就失败了？"><a href="#为什么有一些脚本执行到一半就失败了？" class="headerlink" title="为什么有一些脚本执行到一半就失败了？"></a>为什么有一些脚本执行到一半就失败了？</h2><p>在执行升级ptyhon的bash脚本过程中，执行config到一半就停止了，没有任何报错。折腾半天也没明白，config这条linux命令为什么会执行到一半戛然而止。<br>幸好大神一眼洞穿，表示踩过这个坑。</p>
+<p><em>在执行bash脚本的过程中，shell的缓存区是有限大小（据说是1k），但缓冲区占满后，命令执行会中止。</em></p>
+<p>因为我的脚本中编译python整个过程有很多打印，所以导致了缓存区占满了。</p>
+<p>解决方案：</p>
+<p>一般bash脚本中执行命令会选择把输入打印到文件，一方面避免了缓存区占满问题，一方面也有利于后续问题定位。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./config &gt;&gt; /var/log/xx.log</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -600,7 +615,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么安装完Python2-7后执行python-V还是2-6"><span class="nav-number">1.</span> <span class="nav-text">为什么安装完Python2.7后执行python -V还是2.6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法1：执行命令的时候加上安装目录"><span class="nav-number">1.1.</span> <span class="nav-text">方法1：执行命令的时候加上安装目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法2：修改-usr-bin下的python软链接，让其执行python2-7"><span class="nav-number">1.2.</span> <span class="nav-text">方法2：修改/usr/bin下的python软链接，让其执行python2.7</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo-make-command-not-found"><span class="nav-number">2.</span> <span class="nav-text">为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo make command not found</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方案1：在脚本中加入环境变量配置"><span class="nav-number">2.1.</span> <span class="nav-text">方案1：在脚本中加入环境变量配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案2：使用sudo执行脚本带上“-E”参数，则执行脚本内容时会带上当前shell的环境变量"><span class="nav-number">2.2.</span> <span class="nav-text">方案2：使用sudo执行脚本带上“-E”参数，则执行脚本内容时会带上当前shell的环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案3：在脚本中执行命令带上安装目录，就像上个问题中解决python找不到2-7问题是一样的原理。"><span class="nav-number">2.3.</span> <span class="nav-text">方案3：在脚本中执行命令带上安装目录，就像上个问题中解决python找不到2.7问题是一样的原理。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案4：在-usr-bin中使用软链接，跳转到命令所在目录。就像上个问题中增加python软链接到python2-7一样。"><span class="nav-number">2.4.</span> <span class="nav-text">方案4：在/usr/bin中使用软链接，跳转到命令所在目录。就像上个问题中增加python软链接到python2.7一样。</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么安装完Python2-7后执行python-V还是2-6"><span class="nav-number">1.</span> <span class="nav-text">为什么安装完Python2.7后执行python -V还是2.6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法1：执行命令的时候加上安装目录"><span class="nav-number">1.1.</span> <span class="nav-text">方法1：执行命令的时候加上安装目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法2：修改-usr-bin下的python软链接，让其执行python2-7"><span class="nav-number">1.2.</span> <span class="nav-text">方法2：修改/usr/bin下的python软链接，让其执行python2.7</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo-make-command-not-found"><span class="nav-number">2.</span> <span class="nav-text">为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo make command not found</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方案1：在脚本中加入环境变量配置"><span class="nav-number">2.1.</span> <span class="nav-text">方案1：在脚本中加入环境变量配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案2：使用sudo执行脚本带上“-E”参数，则执行脚本内容时会带上当前shell的环境变量"><span class="nav-number">2.2.</span> <span class="nav-text">方案2：使用sudo执行脚本带上“-E”参数，则执行脚本内容时会带上当前shell的环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案3：在脚本中执行命令带上安装目录，就像上个问题中解决python找不到2-7问题是一样的原理。"><span class="nav-number">2.3.</span> <span class="nav-text">方案3：在脚本中执行命令带上安装目录，就像上个问题中解决python找不到2.7问题是一样的原理。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案4：在-usr-bin中使用软链接，跳转到命令所在目录。就像上个问题中增加python软链接到python2-7一样。"><span class="nav-number">2.4.</span> <span class="nav-text">方案4：在/usr/bin中使用软链接，跳转到命令所在目录。就像上个问题中增加python软链接到python2.7一样。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么unzip解压命令没有用？"><span class="nav-number">3.</span> <span class="nav-text">为什么unzip解压命令没有用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么有一些脚本执行到一半就失败了？"><span class="nav-number">4.</span> <span class="nav-text">为什么有一些脚本执行到一半就失败了？</span></a></li></ol></div>
             
 
           </div>
