@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux,bash," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="背景：我们的项目使用了superset（Airbnb开源的数据挖掘平台），superset的运行需要python2.7环境，以前项目部署时候都是手动安装python2.7，然后再安装产品。最近接了一个自动升级python的需求，在开发过程中被linux的环境变量坑了一会。  问题1：Python2.7安装完后，为什么执行python -V 还是2.6 问题2：安装过程中进行Python编译，包ma">
+<meta name="keywords" content="linux,bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bash脚本执行失败问题">
+<meta property="og:url" content="http://yoursite.com/2018/03/13/bash脚本执行失败问题/index.html">
+<meta property="og:site_name" content="MaKai&#39;s zone">
+<meta property="og:description" content="背景：我们的项目使用了superset（Airbnb开源的数据挖掘平台），superset的运行需要python2.7环境，以前项目部署时候都是手动安装python2.7，然后再安装产品。最近接了一个自动升级python的需求，在开发过程中被linux的环境变量坑了一会。  问题1：Python2.7安装完后，为什么执行python -V 还是2.6 问题2：安装过程中进行Python编译，包ma">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-24T10:20:36.633Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bash脚本执行失败问题">
+<meta name="twitter:description" content="背景：我们的项目使用了superset（Airbnb开源的数据挖掘平台），superset的运行需要python2.7环境，以前项目部署时候都是手动安装python2.7，然后再安装产品。最近接了一个自动升级python的需求，在开发过程中被linux的环境变量坑了一会。  问题1：Python2.7安装完后，为什么执行python -V 还是2.6 问题2：安装过程中进行Python编译，包ma">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/13/bash脚本执行失败问题/"/>
+
+
+
+
+
+  <title>bash脚本执行失败问题 | MaKai's zone</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MaKai's zone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-laboratory">
+          <a href="/laboratory/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-flask"></i> <br />
+            
+            实验室
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/13/bash脚本执行失败问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaKai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaKai's zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">bash脚本执行失败问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T23:04:45+08:00">
+                2018-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常知识点/" itemprop="url" rel="index">
+                    <span itemprop="name">日常知识点</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/13/bash脚本执行失败问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/13/bash脚本执行失败问题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/03/13/bash脚本执行失败问题/" class="leancloud_visitors" data-flag-title="bash脚本执行失败问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>背景：我们的项目使用了superset（Airbnb开源的数据挖掘平台），superset的运行需要python2.7环境，以前项目部署时候都是手动安装python2.7，然后再安装产品。最近接了一个自动升级python的需求，在开发过程中被linux的环境变量坑了一会。</p>
+<ul>
+<li>问题1：Python2.7安装完后，为什么执行python -V 还是2.6</li>
+<li>问题2：安装过程中进行Python编译，包make命令command not found是什么鬼？</li>
+</ul>
+<p>Linux的环境变量一般是这样的（执行echo $PATH）：/sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/usr/games:/opt/setsuse/SEK/Tcl</p>
+<p>其中/usr/local/bin放的的用户安装软件的命令目录，/usr/bin放的是系统自带软件的命令目录。<br>也就是说，执行命令的时候会先/usr/local/bin中查找命令是否存在，存在则执行，不存在再继续往下一个目录查找。如果所有目录都找不到命令，就会报命令找不到错误。（所以一般出现command not found，先检查环境变量）</p>
+<p>但是如果处于各种各样的原因，（人工或者一些系统配置）修改了环境变量，或者多个目录下存在命令的情况，那么命令执行就会出现奇怪的问题了。</p>
+<p><strong><em>以上背景内容可忽略</em></strong></p>
+<h2 id="为什么安装完Python2-7后执行python-V还是2-6"><a href="#为什么安装完Python2-7后执行python-V还是2-6" class="headerlink" title="为什么安装完Python2.7后执行python -V还是2.6"></a>为什么安装完Python2.7后执行python -V还是2.6</h2><p>因为/usr/bin中有一个python软链接，指向Python2.6（系统自带），如果在命令行直接执行python -V，会先在/usr/bin执行python(指向Python2.6)，所以调用到的其实还是Python2.6。</p>
+<p>解决方案：</p>
+<h3 id="方法1：执行命令的时候加上安装目录"><a href="#方法1：执行命令的时候加上安装目录" class="headerlink" title="方法1：执行命令的时候加上安装目录"></a>方法1：执行命令的时候加上安装目录</h3><p>/usr/local/bin是python2.7的默认安装目录，如果安装时候更改了安装目录，则换成安装的那个目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/bin/python -V</span><br><span class="line">Python 2.7.2</span><br></pre></td></tr></table></figure>
+<h3 id="方法2：修改-usr-bin下的python软链接，让其执行python2-7"><a href="#方法2：修改-usr-bin下的python软链接，让其执行python2-7" class="headerlink" title="方法2：修改/usr/bin下的python软链接，让其执行python2.7"></a>方法2：修改/usr/bin下的python软链接，让其执行python2.7</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm /usr/bin/python</span><br><span class="line">ln -s /usr/local/bin/python2.7 /usr/bin/python</span><br><span class="line">python -V</span><br><span class="line">Python 2.7.2</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo-make-command-not-found"><a href="#为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo-make-command-not-found" class="headerlink" title="为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo make command not found"></a>为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo make command not found</h2><p>因为linux使用sudo执行脚本，在运行脚本内容的shell中，环境变量发生了改变。<br>做个实验：写一个bash脚本path.sh，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo $PATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo ./path.sh</span><br><span class="line">/usr/bin:/bin:/usr/sbin:/sbin</span><br><span class="line">sudo echo $PATH</span><br><span class="line">/sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/usr/games:/opt/setsuse/SEK/Tcl</span><br></pre></td></tr></table></figure>
+<p>直接执行sudo和sudo执行脚本使用的环境变量是不一样的。这就是sudo执行脚本找不到命令的原因。<br>因为linux在sudo执行脚本的时候，会将shell的环境变量重置。（下方的env_reset配置）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo -l</span><br><span class="line">Matching Defaults entries for root on this host:</span><br><span class="line">always_set_home, env_reset, env_keep=”LANG LC_ADDRESS LC_CTYPE LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES LC_MONETARY</span><br><span class="line">LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE LC_TIME LC_ALL LANGUAGE LINGUAS XDG_SESSION_COOKIE”, targetpw</span><br><span class="line">Runas and Command-specific defaults for root:</span><br><span class="line">Defaults&gt;root syslog=auth</span><br><span class="line">User root may run the following commands on this host:</span><br><span class="line">(ALL) ALL</span><br><span class="line">(ALL) ALL</span><br></pre></td></tr></table></figure>
+<p>解决方案：各有利弊</p>
+<h3 id="方案1：在脚本中加入环境变量配置"><a href="#方案1：在脚本中加入环境变量配置" class="headerlink" title="方案1：在脚本中加入环境变量配置"></a>方案1：在脚本中加入环境变量配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">PATH=$PATH:/usr/local/bin/:/usr/local/sbin</span><br><span class="line">export PATH</span><br><span class="line">echo $PATH</span><br><span class="line">sudo ./path.sh</span><br><span class="line">/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin/:/usr/local/sbin</span><br><span class="line">##/usr/local/bin/:/usr/local/sbin为在脚本中配置的环境变量</span><br></pre></td></tr></table></figure>
+<p>优点：方便快捷<br>弊端：如果在脚本中，使用sudo 去调用其他脚本，其他脚本也要再次配置$PATH,否则一样会找不到命令</p>
+<h3 id="方案2：使用sudo执行脚本带上“-E”参数，则执行脚本内容时会带上当前shell的环境变量"><a href="#方案2：使用sudo执行脚本带上“-E”参数，则执行脚本内容时会带上当前shell的环境变量" class="headerlink" title="方案2：使用sudo执行脚本带上“-E”参数，则执行脚本内容时会带上当前shell的环境变量"></a>方案2：使用sudo执行脚本带上“-E”参数，则执行脚本内容时会带上当前shell的环境变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo -E ./path.sh</span><br><span class="line">/sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/usr/games:/opt/setsuse/SEK/Tcl</span><br></pre></td></tr></table></figure>
+<p>优点：方便快捷<br>弊端：同样的，如果在脚本中需要sudo调用其他脚本，也要带上“-E”参数</p>
+<h3 id="方案3：在脚本中执行命令带上安装目录，就像上个问题中解决python找不到2-7问题是一样的原理。"><a href="#方案3：在脚本中执行命令带上安装目录，就像上个问题中解决python找不到2-7问题是一样的原理。" class="headerlink" title="方案3：在脚本中执行命令带上安装目录，就像上个问题中解决python找不到2.7问题是一样的原理。"></a>方案3：在脚本中执行命令带上安装目录，就像上个问题中解决python找不到2.7问题是一样的原理。</h3><p>优点：一般不会再出现command not found问题<br>弊端：增加脚本复杂度，每个命令都要知道其安装目录</p>
+<h3 id="方案4：在-usr-bin中使用软链接，跳转到命令所在目录。就像上个问题中增加python软链接到python2-7一样。"><a href="#方案4：在-usr-bin中使用软链接，跳转到命令所在目录。就像上个问题中增加python软链接到python2-7一样。" class="headerlink" title="方案4：在/usr/bin中使用软链接，跳转到命令所在目录。就像上个问题中增加python软链接到python2.7一样。"></a>方案4：在/usr/bin中使用软链接，跳转到命令所在目录。就像上个问题中增加python软链接到python2.7一样。</h3><p>优点：一般不会再出现command not found问题，而且其他地方也可以使用。<br>弊端：需要提前知道要使用的命令，当时加上一次之后，所有脚本都可以使用。</p>
+<hr>
+<h2 id="为什么unzip解压命令没有用？"><a href="#为什么unzip解压命令没有用？" class="headerlink" title="为什么unzip解压命令没有用？"></a>为什么unzip解压命令没有用？</h2><p>在一个安装python的脚本需要解压文件进行编译，但是发现第一次执行解压、编译没问题，但是后面就编译失败了，苦思无解。幸好有个大神指出了问题所在。<br>在bash脚本执行写作过程中，特别要注意一些 <em>有可能</em> 需要交互的命令。</p>
+<p>例如unzip，如果解压文件已存在，则会提示是否进行覆盖，此时如果没有在bash脚本中进行输入，则会shell会一直等待输入至命令超时（命令等待超时后的动作视不同实现决定）。</p>
+<p>解决方案：</p>
+<ul>
+<li>熟悉命令的不同参数，一般都会有规避方法。例如unzip 有参数-o 表示强制覆盖</li>
+<li>也有一些自动输入的方式，例如</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;abc&apos; | unzip xxxx</span><br></pre></td></tr></table></figure>
+<h2 id="为什么有一些脚本执行到一半就失败了？"><a href="#为什么有一些脚本执行到一半就失败了？" class="headerlink" title="为什么有一些脚本执行到一半就失败了？"></a>为什么有一些脚本执行到一半就失败了？</h2><p>在执行升级ptyhon的bash脚本过程中，执行config到一半就停止了，没有任何报错。折腾半天也没明白，config这条linux命令为什么会执行到一半戛然而止。<br>幸好大神一眼洞穿，表示踩过这个坑。</p>
+<p><em>在执行bash脚本的过程中，shell的缓存区是有限大小（据说是1k），但缓冲区占满后，命令执行会中止。</em></p>
+<p>因为我的脚本中编译python整个过程有很多打印，所以导致了缓存区占满了。</p>
+<p>解决方案：</p>
+<p>一般bash脚本中执行命令会选择把输入打印到文件，一方面避免了缓存区占满问题，一方面也有利于后续问题定位。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./config &gt;&gt; /var/log/xx.log</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/bash/" rel="tag"># bash</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/18/hexo的那些坑儿/" rel="next" title="hexo的那些坑儿">
+                <i class="fa fa-chevron-left"></i> hexo的那些坑儿
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">MaKai</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/markey92" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么安装完Python2-7后执行python-V还是2-6"><span class="nav-number">1.</span> <span class="nav-text">为什么安装完Python2.7后执行python -V还是2.6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法1：执行命令的时候加上安装目录"><span class="nav-number">1.1.</span> <span class="nav-text">方法1：执行命令的时候加上安装目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法2：修改-usr-bin下的python软链接，让其执行python2-7"><span class="nav-number">1.2.</span> <span class="nav-text">方法2：修改/usr/bin下的python软链接，让其执行python2.7</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo-make-command-not-found"><span class="nav-number">2.</span> <span class="nav-text">为什么安装过程中sudo执行bash脚本来编译Python包，提示sudo make command not found</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方案1：在脚本中加入环境变量配置"><span class="nav-number">2.1.</span> <span class="nav-text">方案1：在脚本中加入环境变量配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案2：使用sudo执行脚本带上“-E”参数，则执行脚本内容时会带上当前shell的环境变量"><span class="nav-number">2.2.</span> <span class="nav-text">方案2：使用sudo执行脚本带上“-E”参数，则执行脚本内容时会带上当前shell的环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案3：在脚本中执行命令带上安装目录，就像上个问题中解决python找不到2-7问题是一样的原理。"><span class="nav-number">2.3.</span> <span class="nav-text">方案3：在脚本中执行命令带上安装目录，就像上个问题中解决python找不到2.7问题是一样的原理。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案4：在-usr-bin中使用软链接，跳转到命令所在目录。就像上个问题中增加python软链接到python2-7一样。"><span class="nav-number">2.4.</span> <span class="nav-text">方案4：在/usr/bin中使用软链接，跳转到命令所在目录。就像上个问题中增加python软链接到python2.7一样。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么unzip解压命令没有用？"><span class="nav-number">3.</span> <span class="nav-text">为什么unzip解压命令没有用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么有一些脚本执行到一半就失败了？"><span class="nav-number">4.</span> <span class="nav-text">为什么有一些脚本执行到一半就失败了？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MaKai</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">联系我：<a href="mailto:105366766@qq.com"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '72Fgxb0gySvznKAxq86UCAgQ-gzGzoHsz',
+        appKey: '66kLp88cO9j1v6k1bWqvsNAo',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("72Fgxb0gySvznKAxq86UCAgQ-gzGzoHsz", "66kLp88cO9j1v6k1bWqvsNAo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "default";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
