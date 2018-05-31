@@ -90,7 +90,12 @@
 <meta property="og:image" content="http://yoursite.com/2018/05/31/使用Superset创建数据分析图表/进入superset.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/05/31/使用Superset创建数据分析图表/填写表单.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/05/31/使用Superset创建数据分析图表/数据库.jpg">
-<meta property="og:updated_time" content="2018-05-31T15:54:56.391Z">
+<meta property="og:image" content="http://yoursite.com/2018/05/31/使用Superset创建数据分析图表/创建数据表.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/05/31/使用Superset创建数据分析图表/填写数据表表单.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/05/31/使用Superset创建数据分析图表/查看数据表.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/05/31/使用Superset创建数据分析图表/图表.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/05/31/使用Superset创建数据分析图表/饼图.jpg">
+<meta property="og:updated_time" content="2018-05-31T16:12:27.126Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Superset创建数据分析图表">
 <meta name="twitter:description" content="条件准备 安装superset 安装MySQL MySQL数据库中存在可用于连接的数据库(例如我创建了一个school数据库)  Superset增加MySql数据库 登陆superset界面，选择数据源(Sources)-&amp;gt;数据库(Databases) 点击右上角加号(Add a new record) 填写表单，主要填写以下内容： 数据库(自定义) SQLAlchemy URI(mysq">
@@ -386,7 +391,7 @@
 <li>登陆superset界面，选择数据源(Sources)-&gt;数据库(Databases)</li>
 <li>点击右上角加号(Add a new record)</li>
 <li>填写表单，主要填写以下内容：</li>
-<li>数据库(自定义) SQLAlchemy URI(mysql://root:123456@172.17.0.3:3306/school)</li>
+<li>数据库(自定义) SQLAlchemy URI(mysql://username:passwd@ip:port/school)</li>
 <li>点击测试连接(Test Connection)，退出“Seems OK！”说明数据库连接正常</li>
 <li>点击表单最下面的保存(Save)</li>
 <li>查看数据库记录，可进行查看、编辑、删除操作</li>
@@ -395,11 +400,33 @@
 <p>填写表单，主要填写以下内容：</p>
 <ul>
 <li>数据库(自定义) </li>
-<li>SQLAlchemy URI(mysql://root:123456@172.17.0.3:3306/school)<br>点击测试连接(Test Connection)，退出“Seems OK！”说明数据库连接正常<br>点击表单最下面的保存(Save)<br><img src="/2018/05/31/使用Superset创建数据分析图表/填写表单.jpg" alt="填写表单"></li>
+<li>SQLAlchemy URI(mysql://username:passwd@ip:port/school)<br>点击测试连接(Test Connection)，退出“Seems OK！”说明数据库连接正常<br>点击表单最下面的保存(Save)<br><img src="/2018/05/31/使用Superset创建数据分析图表/填写表单.jpg" alt="填写表单"></li>
 </ul>
 <p>查看数据库记录，可进行查看、编辑、删除操作<br><img src="/2018/05/31/使用Superset创建数据分析图表/数据库.jpg" alt="数据库"></p>
-<h1 id="创建一个数据表-Table"><a href="#创建一个数据表-Table" class="headerlink" title="创建一个数据表(Table)"></a>创建一个数据表(Table)</h1><p>登陆superset界面，选择数据源(Sources)-&gt;数据表(Tables)<br>点击右上角加号(Add a new record)</p>
-<p>选择数据库(Database)-&gt;上一步添加的数据库<br>表名(Table Name)-&gt;数据库中的表<br>点击表单最下面的保存(Save)<br>查看数据表记录，可进行查看、编辑、删除操作</p>
+<h1 id="创建一个数据表-Table"><a href="#创建一个数据表-Table" class="headerlink" title="创建一个数据表(Table)"></a>创建一个数据表(Table)</h1><ul>
+<li>登陆superset界面，选择数据源(Sources)-&gt;数据表(Tables)</li>
+<li>点击右上角加号(Add a new record)</li>
+<li>选择数据库(Database)-&gt;上一步添加的数据库</li>
+<li>表名(Table Name)-&gt;数据库中的表</li>
+<li>点击表单最下面的保存(Save)</li>
+<li>查看数据表记录，可进行查看、编辑、删除操作</li>
+</ul>
+<p>登陆superset界面，选择数据源(Sources)-&gt;数据表(Tables)<br>点击右上角加号(Add a new record)<br><img src="/2018/05/31/使用Superset创建数据分析图表/创建数据表.jpg" alt="创建数据表表"></p>
+<p>选择数据库(Database)-&gt;上一步添加的数据库<br>表名(Table Name)-&gt;数据库中的表<br>点击表单最下面的保存(Save)<br><img src="/2018/05/31/使用Superset创建数据分析图表/填写数据表表单.jpg" alt="填写数据表表单"></p>
+<p>查看数据表记录，可进行查看、编辑、删除操作<br><img src="/2018/05/31/使用Superset创建数据分析图表/查看数据表.jpg" alt="查看数据表"></p>
+<h1 id="创建一个图表"><a href="#创建一个图表" class="headerlink" title="创建一个图表"></a>创建一个图表</h1><ul>
+<li>登陆superset界面，选择图表(Charts)</li>
+<li>点击右上角加号(Add a new record)</li>
+<li>选择数据源(datasource)-&gt;上一步新增的数据表</li>
+<li>选择图表类型(Choose a visualization type)-&gt;饼图(Pie Chart)</li>
+<li>创建新图表(Create new slice)</li>
+<li>选择Query为”COUNT(*)”,选择Group by为”sex”</li>
+<li>点击左上角Run Query</li>
+<li>点击左上角Save，可将图标保存到看板(Dashboards)中</li>
+</ul>
+<p><img src="/2018/05/31/使用Superset创建数据分析图表/图表.jpg" alt="图表"></p>
+<p><img src="/2018/05/31/使用Superset创建数据分析图表/饼图.jpg" alt="饼图"></p>
+<p><em>备注：我在school数据库中有一个student的数据表（具有sex属性），并在其中插入两个数据，所以饼图正确统计了数据表中的内容</em></p>
 
       
     </div>
@@ -602,7 +629,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#条件准备"><span class="nav-number">1.</span> <span class="nav-text">条件准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Superset增加MySql数据库"><span class="nav-number">2.</span> <span class="nav-text">Superset增加MySql数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建一个数据表-Table"><span class="nav-number">3.</span> <span class="nav-text">创建一个数据表(Table)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#条件准备"><span class="nav-number">1.</span> <span class="nav-text">条件准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Superset增加MySql数据库"><span class="nav-number">2.</span> <span class="nav-text">Superset增加MySql数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建一个数据表-Table"><span class="nav-number">3.</span> <span class="nav-text">创建一个数据表(Table)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建一个图表"><span class="nav-number">4.</span> <span class="nav-text">创建一个图表</span></a></li></ol></div>
             
 
           </div>
