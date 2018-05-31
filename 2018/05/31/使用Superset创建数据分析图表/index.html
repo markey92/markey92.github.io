@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="条件准备 安装superset 安装MySQL MySQL数据库中存在可用于连接的数据库(例如我创建了一个school数据库)  Superset增加MySql数据库 登陆superset界面，选择数据源(Sources)-&amp;gt;数据库(Databases) 点击右上角加号(Add a new record) 填写表单，主要填写以下内容： 数据库(自定义) SQLAlchemy URI(mysq">
+<meta name="description" content="条件准备 安装superset 安装MySQL MySQL数据库中存在可用于连接的数据库(例如我创建了一个school数据库)  Superset增加MySql数据库 登陆superset界面，选择数据源(Sources)-&amp;gt;数据库(Databases) 点击右上角加号(Add a new record) 填写表单，主要填写以下内容： 点击测试连接(Test Connection)，退出“S">
 <meta name="keywords" content="大数据,数据分析,superset">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Superset创建数据分析图表">
 <meta property="og:url" content="http://yoursite.com/2018/05/31/使用Superset创建数据分析图表/index.html">
 <meta property="og:site_name" content="MaKai&#39;s zone">
-<meta property="og:description" content="条件准备 安装superset 安装MySQL MySQL数据库中存在可用于连接的数据库(例如我创建了一个school数据库)  Superset增加MySql数据库 登陆superset界面，选择数据源(Sources)-&amp;gt;数据库(Databases) 点击右上角加号(Add a new record) 填写表单，主要填写以下内容： 数据库(自定义) SQLAlchemy URI(mysq">
+<meta property="og:description" content="条件准备 安装superset 安装MySQL MySQL数据库中存在可用于连接的数据库(例如我创建了一个school数据库)  Superset增加MySql数据库 登陆superset界面，选择数据源(Sources)-&amp;gt;数据库(Databases) 点击右上角加号(Add a new record) 填写表单，主要填写以下内容： 点击测试连接(Test Connection)，退出“S">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/05/31/使用Superset创建数据分析图表/进入superset.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/05/31/使用Superset创建数据分析图表/填写表单.jpg">
@@ -95,10 +95,10 @@
 <meta property="og:image" content="http://yoursite.com/2018/05/31/使用Superset创建数据分析图表/查看数据表.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/05/31/使用Superset创建数据分析图表/图表.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/05/31/使用Superset创建数据分析图表/饼图.jpg">
-<meta property="og:updated_time" content="2018-05-31T16:12:27.126Z">
+<meta property="og:updated_time" content="2018-05-31T16:19:59.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Superset创建数据分析图表">
-<meta name="twitter:description" content="条件准备 安装superset 安装MySQL MySQL数据库中存在可用于连接的数据库(例如我创建了一个school数据库)  Superset增加MySql数据库 登陆superset界面，选择数据源(Sources)-&amp;gt;数据库(Databases) 点击右上角加号(Add a new record) 填写表单，主要填写以下内容： 数据库(自定义) SQLAlchemy URI(mysq">
+<meta name="twitter:description" content="条件准备 安装superset 安装MySQL MySQL数据库中存在可用于连接的数据库(例如我创建了一个school数据库)  Superset增加MySql数据库 登陆superset界面，选择数据源(Sources)-&amp;gt;数据库(Databases) 点击右上角加号(Add a new record) 填写表单，主要填写以下内容： 点击测试连接(Test Connection)，退出“S">
 <meta name="twitter:image" content="http://yoursite.com/2018/05/31/使用Superset创建数据分析图表/进入superset.jpg">
 
 
@@ -391,7 +391,6 @@
 <li>登陆superset界面，选择数据源(Sources)-&gt;数据库(Databases)</li>
 <li>点击右上角加号(Add a new record)</li>
 <li>填写表单，主要填写以下内容：</li>
-<li>数据库(自定义) SQLAlchemy URI(mysql://username:passwd@ip:port/school)</li>
 <li>点击测试连接(Test Connection)，退出“Seems OK！”说明数据库连接正常</li>
 <li>点击表单最下面的保存(Save)</li>
 <li>查看数据库记录，可进行查看、编辑、删除操作</li>
@@ -420,9 +419,9 @@
 <li>选择数据源(datasource)-&gt;上一步新增的数据表</li>
 <li>选择图表类型(Choose a visualization type)-&gt;饼图(Pie Chart)</li>
 <li>创建新图表(Create new slice)</li>
-<li>选择Query为”COUNT(*)”,选择Group by为”sex”</li>
+<li>选择Query为”COUNT(*)”,选择Group by为”sex”(意思是查询所有数据，并按照sex来分组)</li>
 <li>点击左上角Run Query</li>
-<li>点击左上角Save，可将图标保存到看板(Dashboards)中</li>
+<li>点击左上角Save，可将图表保存到看板(Dashboards)中</li>
 </ul>
 <p><img src="/2018/05/31/使用Superset创建数据分析图表/图表.jpg" alt="图表"></p>
 <p><img src="/2018/05/31/使用Superset创建数据分析图表/饼图.jpg" alt="饼图"></p>
