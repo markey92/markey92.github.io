@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="注解说明 使用注解： @scope 效果：指定Bean的作用域 ，默认的是singleton，常用的还有prototype   Scope的全部可选项 singleton 全局只有一个实例，即单例模式 prototype 每次注入Bean都是一个新的实例 request 每次HTTP请求都会产生新的Bean session 每次HTTP请求都会产生新的Bean，该Bean在仅在当前session内">
+<meta name="description" content="注解说明 使用注解： @scope 效果：指定Bean的作用域 ，默认的是singleton，常用的还有prototype Scope的全部可选项   singleton 全局只有一个实例，即单例模式 prototype 每次注入Bean都是一个新的实例 request 每次HTTP请求都会产生新的Bean session 每次HTTP请求都会产生新的Bean，该Bean在仅在当前session内">
 <meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,scope">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot中的Bean作用域————@scope">
 <meta property="og:url" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean作用域————-scope/index.html">
 <meta property="og:site_name" content="MaKai&#39;s zone">
-<meta property="og:description" content="注解说明 使用注解： @scope 效果：指定Bean的作用域 ，默认的是singleton，常用的还有prototype   Scope的全部可选项 singleton 全局只有一个实例，即单例模式 prototype 每次注入Bean都是一个新的实例 request 每次HTTP请求都会产生新的Bean session 每次HTTP请求都会产生新的Bean，该Bean在仅在当前session内">
+<meta property="og:description" content="注解说明 使用注解： @scope 效果：指定Bean的作用域 ，默认的是singleton，常用的还有prototype Scope的全部可选项   singleton 全局只有一个实例，即单例模式 prototype 每次注入Bean都是一个新的实例 request 每次HTTP请求都会产生新的Bean session 每次HTTP请求都会产生新的Bean，该Bean在仅在当前session内">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean作用域————-scope/相同Bean.PNG">
 <meta property="og:image" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean作用域————-scope/不同Bean.PNG">
-<meta property="og:updated_time" content="2018-11-18T10:27:04.735Z">
+<meta property="og:updated_time" content="2018-11-18T10:44:14.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot中的Bean作用域————@scope">
-<meta name="twitter:description" content="注解说明 使用注解： @scope 效果：指定Bean的作用域 ，默认的是singleton，常用的还有prototype   Scope的全部可选项 singleton 全局只有一个实例，即单例模式 prototype 每次注入Bean都是一个新的实例 request 每次HTTP请求都会产生新的Bean session 每次HTTP请求都会产生新的Bean，该Bean在仅在当前session内">
+<meta name="twitter:description" content="注解说明 使用注解： @scope 效果：指定Bean的作用域 ，默认的是singleton，常用的还有prototype Scope的全部可选项   singleton 全局只有一个实例，即单例模式 prototype 每次注入Bean都是一个新的实例 request 每次HTTP请求都会产生新的Bean session 每次HTTP请求都会产生新的Bean，该Bean在仅在当前session内">
 <meta name="twitter:image" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean作用域————-scope/相同Bean.PNG">
 
 
@@ -378,9 +378,9 @@
       
         <h1 id="注解说明"><a href="#注解说明" class="headerlink" title="注解说明"></a>注解说明</h1><ul>
 <li><strong>使用注解： @scope</strong></li>
-<li><strong>效果：指定Bean的作用域 ，默认的是singleton，常用的还有prototype </strong></li>
+<li><strong>效果：指定Bean的作用域 ，默认的是singleton，常用的还有prototype </strong><h1 id="Scope的全部可选项"><a href="#Scope的全部可选项" class="headerlink" title="Scope的全部可选项"></a>Scope的全部可选项</h1></li>
 </ul>
-<h1 id="Scope的全部可选项"><a href="#Scope的全部可选项" class="headerlink" title="Scope的全部可选项"></a>Scope的全部可选项</h1><ol>
+<ol>
 <li>singleton 全局只有一个实例，即单例模式</li>
 <li>prototype 每次注入Bean都是一个新的实例</li>
 <li>request 每次HTTP请求都会产生新的Bean</li>
@@ -389,12 +389,12 @@
 </ol>
 <h1 id="引入步骤"><a href="#引入步骤" class="headerlink" title="引入步骤"></a>引入步骤</h1><p>在类上加入@Scope注解，指定使用的模式，默认是单例模式</p>
 <h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><p><a href="https://github.com/markey92/SpringBootTest" target="_blank" rel="noopener">完整参考代码github</a></p>
-<h2 id="单例模式示例"><a href="#单例模式示例" class="headerlink" title="单例模式示例"></a>单例模式示例</h2><p>在两个MysScopeTest中都注入MyScope，测试结果可以发现两个MyScopeTest中的MyScope是同一个</p>
+<h2 id="单例模式示例"><a href="#单例模式示例" class="headerlink" title="单例模式示例"></a>单例模式示例</h2><p>在两个MysScopeTest中都注入MyScope，测试结果可以发现两个MyScopeTest中的MyScope是同一个。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.context.annotation.Scope;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">@Scope</span><br><span class="line">public class MyScope &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line">import javax.annotation.PostConstruct;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class MyScopeTest1 &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    MyScope myScope;</span><br><span class="line"></span><br><span class="line">    @PostConstruct</span><br><span class="line">    public void sayMyScope() &#123;</span><br><span class="line">        System.out.println(&quot;hello,i am MyScopeTest1, my scope is &quot; + myScope.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line">import javax.annotation.PostConstruct;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class MyScopeTest2 &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    MyScope myScope;</span><br><span class="line"></span><br><span class="line">    @PostConstruct</span><br><span class="line">    public void sayMyScope() &#123;</span><br><span class="line">        System.out.println(&quot;hello,i am MyScopeTest2, my scope is &quot; + myScope.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/11/18/SpringBoot中的Bean作用域————-scope/相同Bean.PNG" alt="运行结果"></p>
-<h2 id="原型模式示例"><a href="#原型模式示例" class="headerlink" title="原型模式示例"></a>原型模式示例</h2><p>在两个MysScopeTest中都注入MyScope，测试结果可以发现两个MyScopeTest中的MyScope不是同一个</p>
+<h2 id="原型模式示例"><a href="#原型模式示例" class="headerlink" title="原型模式示例"></a>原型模式示例</h2><p>在两个MysScopeTest中都注入MyScope，测试结果可以发现两个MyScopeTest中的MyScope不是同一个。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.context.annotation.Scope;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">@Scope(&quot;prototype&quot;)</span><br><span class="line">public class MyScope &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/11/18/SpringBoot中的Bean作用域————-scope/不同Bean.PNG" alt="运行结果"></p>
 
