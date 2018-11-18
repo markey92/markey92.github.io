@@ -86,12 +86,12 @@
 <meta property="og:site_name" content="MaKai&#39;s zone">
 <meta property="og:description" content="注解说明 使用注解：@Scheduled @EnableScheduling 效果：可以实现在指定时间、指定周期执行动作  引入步骤： 在启动方法前加上@EnableScheduling开启定时任务开关 在任务执行方法上加上@Scheduled，并使用cron表达式定义任务执行周期  示例代码：1234567891011121314import org.springframework.schedu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/11/16/SpringBoot中的定时任务————-Scheduled/运行结果.png">
-<meta property="og:updated_time" content="2018-11-18T07:40:44.458Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/16/SpringBoot中的定时任务————-Scheduled/运行结果.PNG">
+<meta property="og:updated_time" content="2018-11-18T07:50:42.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot中的定时任务————@Scheduled">
 <meta name="twitter:description" content="注解说明 使用注解：@Scheduled @EnableScheduling 效果：可以实现在指定时间、指定周期执行动作  引入步骤： 在启动方法前加上@EnableScheduling开启定时任务开关 在任务执行方法上加上@Scheduled，并使用cron表达式定义任务执行周期  示例代码：1234567891011121314import org.springframework.schedu">
-<meta name="twitter:image" content="http://yoursite.com/2018/11/16/SpringBoot中的定时任务————-Scheduled/运行结果.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/16/SpringBoot中的定时任务————-Scheduled/运行结果.PNG">
 
 
 
@@ -362,7 +362,7 @@
 </ol>
 <p>示例代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.scheduling.annotation.Scheduled;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">import java.util.Calendar;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class MyScheduled &#123;</span><br><span class="line"></span><br><span class="line">    @Scheduled(cron = &quot;0/2 * * * * ?&quot;)</span><br><span class="line">    public void task1() &#123;</span><br><span class="line">        Calendar now = Calendar.getInstance();</span><br><span class="line">        System.out.println(&quot;hello, i am task1,now:&quot; + now.getTime().toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.boot.SpringApplication;</span><br><span class="line">import org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line">import org.springframework.scheduling.annotation.EnableScheduling;</span><br><span class="line"></span><br><span class="line">@SpringBootApplication</span><br><span class="line">@EnableScheduling</span><br><span class="line">public class SpringBootStartApplication &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(SpringBootStartApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/11/16/SpringBoot中的定时任务————-Scheduled/运行结果.png" alt="运行结果"><br>参考：<br><a href="https://github.com/markey92/SpringBootTest" target="_blank" rel="noopener">完整参考代码github</a><br><a href="http://cron.qqe2.com/" target="_blank" rel="noopener">在线生成cron表达式</a></p>
+<p><img src="/2018/11/16/SpringBoot中的定时任务————-Scheduled/运行结果.PNG" alt="运行结果"><br>参考：<br><a href="https://github.com/markey92/SpringBootTest" target="_blank" rel="noopener">完整参考代码github</a><br><a href="http://cron.qqe2.com/" target="_blank" rel="noopener">在线生成cron表达式</a></p>
 
       
     </div>
