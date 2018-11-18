@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="注解说明 使用注解： @scope **效果：指定Bean的作用域，默认的是singleton，常用的还有prototype    singleton   全局只有一个实例，即单例模式 prototype   每次注入bBean都是一个新的实例 request   每次HTTP请求都会产生新的Bean session   每次HTTP请求都会产生新的Bean，该Bean在仅在当前session内有">
+<meta name="description" content="注解说明 使用注解： @scope **效果：指定Bean的作用域 ，默认的是singleton，常用的还有prototype    singleton 全局只有一个实例，即单例模式 prototype 每次注入bBean都是一个新的实例 request 每次HTTP请求都会产生新的Bean session 每次HTTP请求都会产生新的Bean，该Bean在仅在当前session内有效 globa">
 <meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,scope">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot中的Bean作用域————@scope">
 <meta property="og:url" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean作用域————-scope/index.html">
 <meta property="og:site_name" content="MaKai&#39;s zone">
-<meta property="og:description" content="注解说明 使用注解： @scope **效果：指定Bean的作用域，默认的是singleton，常用的还有prototype    singleton   全局只有一个实例，即单例模式 prototype   每次注入bBean都是一个新的实例 request   每次HTTP请求都会产生新的Bean session   每次HTTP请求都会产生新的Bean，该Bean在仅在当前session内有">
+<meta property="og:description" content="注解说明 使用注解： @scope **效果：指定Bean的作用域 ，默认的是singleton，常用的还有prototype    singleton 全局只有一个实例，即单例模式 prototype 每次注入bBean都是一个新的实例 request 每次HTTP请求都会产生新的Bean session 每次HTTP请求都会产生新的Bean，该Bean在仅在当前session内有效 globa">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-18T10:03:24.966Z">
+<meta property="og:updated_time" content="2018-11-18T10:05:54.373Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot中的Bean作用域————@scope">
-<meta name="twitter:description" content="注解说明 使用注解： @scope **效果：指定Bean的作用域，默认的是singleton，常用的还有prototype    singleton   全局只有一个实例，即单例模式 prototype   每次注入bBean都是一个新的实例 request   每次HTTP请求都会产生新的Bean session   每次HTTP请求都会产生新的Bean，该Bean在仅在当前session内有">
+<meta name="twitter:description" content="注解说明 使用注解： @scope **效果：指定Bean的作用域 ，默认的是singleton，常用的还有prototype    singleton 全局只有一个实例，即单例模式 prototype 每次注入bBean都是一个新的实例 request 每次HTTP请求都会产生新的Bean session 每次HTTP请求都会产生新的Bean，该Bean在仅在当前session内有效 globa">
 
 
 
@@ -375,12 +375,12 @@
       
         <h1 id="注解说明"><a href="#注解说明" class="headerlink" title="注解说明"></a>注解说明</h1><ul>
 <li><strong>使用注解： @scope</strong></li>
-<li>**效果：指定Bean的作用域<br>，默认的是singleton，常用的还有prototype   <ol>
-<li>singleton<br>   全局只有一个实例，即单例模式</li>
-<li>prototype<br>   每次注入bBean都是一个新的实例</li>
-<li>request<br>   每次HTTP请求都会产生新的Bean</li>
-<li>session<br>   每次HTTP请求都会产生新的Bean，该Bean在仅在当前session内有效</li>
-<li>global session<br>   每次HTTP请求都会产生新的Bean，该Bean在 当前global Session（基于portlet的web应用中）内有效</li>
+<li>**效果：指定Bean的作用域 ，默认的是singleton，常用的还有prototype   <ol>
+<li>singleton<br> 全局只有一个实例，即单例模式</li>
+<li>prototype<br> 每次注入bBean都是一个新的实例</li>
+<li>request<br> 每次HTTP请求都会产生新的Bean</li>
+<li>session<br> 每次HTTP请求都会产生新的Bean，该Bean在仅在当前session内有效</li>
+<li>global session<br> 每次HTTP请求都会产生新的Bean，该Bean在 当前global Session（基于portlet的web应用中）内有效</li>
 </ol>
 </li>
 <li><strong>备注：Bean初始化时候的执行顺序： 构造方法 -&gt; @Autowired -&gt; @PostConstruct</strong></li>
