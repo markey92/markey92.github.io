@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,PostConstruct," />
+  <meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,Lazy," />
 
 
 
@@ -79,22 +79,21 @@
 
 
 
-<meta name="description" content="注解说明 使用注解： @PostConstruct 效果：在Bean初始化之后（构造方法和@Autowired之后）执行指定操作。经常用在将构造方法中的动作延迟。 备注：Bean初始化时候的执行顺序： 构造方法 -&amp;gt; @Autowired -&amp;gt; @PostConstruct  引入步骤在自定义的bean初始化方法上加上@PostConstruct 示例代码完整参考代码github 注解">
-<meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,PostConstruct">
+<meta name="description" content="注解说明 使用注解： @Lazy 效果：一般情况下，Spring容器在启动时会创建所有的Bean对象，使用@Lazy注解可以将Bean对象的创建延迟到第一次使用Bean的时候  引入步骤在类上加入@Lazy或者@@Lazy(value=true) 示例代码完整参考代码github Bean对象在容器启动时创建通过代码结果打印可以看出，在Spring容器启动中，就执行了MyLazy对象的创建动作。">
+<meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,Lazy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring中的Bean初始化方法——@PostConstruct">
-<meta property="og:url" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/index.html">
+<meta property="og:title" content="SpringBoot中的Bean懒加载————@Lazy">
+<meta property="og:url" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean懒加载————-Lazy/index.html">
 <meta property="og:site_name" content="MaKai&#39;s zone">
-<meta property="og:description" content="注解说明 使用注解： @PostConstruct 效果：在Bean初始化之后（构造方法和@Autowired之后）执行指定操作。经常用在将构造方法中的动作延迟。 备注：Bean初始化时候的执行顺序： 构造方法 -&amp;gt; @Autowired -&amp;gt; @PostConstruct  引入步骤在自定义的bean初始化方法上加上@PostConstruct 示例代码完整参考代码github 注解">
+<meta property="og:description" content="注解说明 使用注解： @Lazy 效果：一般情况下，Spring容器在启动时会创建所有的Bean对象，使用@Lazy注解可以将Bean对象的创建延迟到第一次使用Bean的时候  引入步骤在类上加入@Lazy或者@@Lazy(value=true) 示例代码完整参考代码github Bean对象在容器启动时创建通过代码结果打印可以看出，在Spring容器启动中，就执行了MyLazy对象的创建动作。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/init方法运行结果.PNG">
-<meta property="og:image" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/错误示例.PNG">
-<meta property="og:image" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/正确示例.PNG">
-<meta property="og:updated_time" content="2018-11-18T09:14:29.279Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean懒加载————-Lazy/没有懒加载.PNG">
+<meta property="og:image" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean懒加载————-Lazy/懒加载.PNG">
+<meta property="og:updated_time" content="2018-11-18T11:24:36.886Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring中的Bean初始化方法——@PostConstruct">
-<meta name="twitter:description" content="注解说明 使用注解： @PostConstruct 效果：在Bean初始化之后（构造方法和@Autowired之后）执行指定操作。经常用在将构造方法中的动作延迟。 备注：Bean初始化时候的执行顺序： 构造方法 -&amp;gt; @Autowired -&amp;gt; @PostConstruct  引入步骤在自定义的bean初始化方法上加上@PostConstruct 示例代码完整参考代码github 注解">
-<meta name="twitter:image" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/init方法运行结果.PNG">
+<meta name="twitter:title" content="SpringBoot中的Bean懒加载————@Lazy">
+<meta name="twitter:description" content="注解说明 使用注解： @Lazy 效果：一般情况下，Spring容器在启动时会创建所有的Bean对象，使用@Lazy注解可以将Bean对象的创建延迟到第一次使用Bean的时候  引入步骤在类上加入@Lazy或者@@Lazy(value=true) 示例代码完整参考代码github Bean对象在容器启动时创建通过代码结果打印可以看出，在Spring容器启动中，就执行了MyLazy对象的创建动作。">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean懒加载————-Lazy/没有懒加载.PNG">
 
 
 
@@ -124,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/18/SpringBoot中的Bean懒加载————-Lazy/"/>
 
 
 
 
 
-  <title>Spring中的Bean初始化方法——@PostConstruct | MaKai's zone</title>
+  <title>SpringBoot中的Bean懒加载————@Lazy | MaKai's zone</title>
   
 
 
@@ -267,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/18/SpringBoot中的Bean懒加载————-Lazy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MaKai">
@@ -284,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring中的Bean初始化方法——@PostConstruct</h1>
+          <h1 class="post-title" itemprop="name headline">SpringBoot中的Bean懒加载————@Lazy</h1>
         
 
         <div class="post-meta">
@@ -296,7 +295,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-18T15:55:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-18T19:01:31+08:00">
                 2018-11-18
               </time>
             
@@ -319,8 +318,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SpringBoot/" itemprop="url" rel="index">
-                    <span itemprop="name">SpringBoot</span>
+                  <a href="/categories/SpringBoot注解/" itemprop="url" rel="index">
+                    <span itemprop="name">SpringBoot注解</span>
                   </a>
                 </span>
 
@@ -337,8 +336,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/" itemprop="commentCount"></span>
+                <a href="/2018/11/18/SpringBoot中的Bean懒加载————-Lazy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/18/SpringBoot中的Bean懒加载————-Lazy/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -346,7 +345,7 @@
 
           
           
-             <span id="/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/" class="leancloud_visitors" data-flag-title="Spring中的Bean初始化方法——@PostConstruct">
+             <span id="/2018/11/18/SpringBoot中的Bean懒加载————-Lazy/" class="leancloud_visitors" data-flag-title="SpringBoot中的Bean懒加载————@Lazy">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -378,21 +377,18 @@
 
       
         <h1 id="注解说明"><a href="#注解说明" class="headerlink" title="注解说明"></a>注解说明</h1><ul>
-<li><strong>使用注解： @PostConstruct</strong></li>
-<li><strong>效果：在Bean初始化之后（构造方法和@Autowired之后）执行指定操作。经常用在将构造方法中的动作延迟。</strong></li>
-<li><strong>备注：Bean初始化时候的执行顺序： 构造方法 -&gt; @Autowired -&gt; @PostConstruct</strong></li>
+<li>使用注解： @Lazy</li>
+<li>效果：一般情况下，Spring容器在启动时会创建所有的Bean对象，使用@Lazy注解可以将Bean对象的创建延迟到第一次使用Bean的时候</li>
 </ul>
-<h1 id="引入步骤"><a href="#引入步骤" class="headerlink" title="引入步骤"></a>引入步骤</h1><p>在自定义的bean初始化方法上加上@PostConstruct</p>
+<h1 id="引入步骤"><a href="#引入步骤" class="headerlink" title="引入步骤"></a>引入步骤</h1><p>在类上加入@Lazy或者@@Lazy(value=true)</p>
 <h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><p><a href="https://github.com/markey92/SpringBootTest" target="_blank" rel="noopener">完整参考代码github</a></p>
-<h2 id="注解示例"><a href="#注解示例" class="headerlink" title="注解示例"></a>注解示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line">import javax.annotation.PostConstruct;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class MyPostConstruct &#123;</span><br><span class="line"></span><br><span class="line">    @PostConstruct</span><br><span class="line">    public void init() &#123;</span><br><span class="line">        System.out.println(&quot;this is init method&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果：<br><img src="/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/init方法运行结果.PNG" alt="运行结果"></p>
-<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><p>在Bean的初始化操作中，有时候会遇到调用其他Bean的时候报空指针错误。这时候就可以将调用另一个Bean的方法这个操作放到@PostConstruct注解的方法中，将其延迟执行。</p>
-<p>例如：我们想要在MyPostConstruct方法初始化时调用YourPostConstruct的方法，于是就在MyPostConstruct的构造方法中加入了初始化操作，此时Spring启动会报错。<br>原因：<strong>MyPostConstruct调用YourPostConstruct的方法时，YourPostConstruct这个Bean还没有初始化完成。</strong><br>解决方案：将初始化操作放到@PostConstruct注解的方法中，这样就能保证在调用方法时Bean已经初始化完成。</p>
-<h2 id="错误示例"><a href="#错误示例" class="headerlink" title="错误示例"></a>错误示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class MyPostConstruct &#123;</span><br><span class="line">    </span><br><span class="line">    @Autowired</span><br><span class="line">    YourPostConstruct yourPostConstruct;</span><br><span class="line"></span><br><span class="line">    public MyPostConstruct() &#123;</span><br><span class="line">        yourPostConstruct.sayHello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class YourPostConstruct &#123;</span><br><span class="line"></span><br><span class="line">    public void sayHello() &#123;</span><br><span class="line">        System.out.println(&quot;hello, i am yourPostConstruct&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/错误示例.PNG" alt="错误示例"></p>
-<h2 id="正确示例"><a href="#正确示例" class="headerlink" title="正确示例"></a>正确示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line">import javax.annotation.PostConstruct;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class MyPostConstruct &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    YourPostConstruct yourPostConstruct;</span><br><span class="line"></span><br><span class="line">    @PostConstruct</span><br><span class="line">    public void init() &#123;</span><br><span class="line">        yourPostConstruct.sayHello();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public MyPostConstruct() &#123;</span><br><span class="line">//        yourPostConstruct.sayHello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/正确示例.PNG" alt="正确示例"></p>
+<h2 id="Bean对象在容器启动时创建"><a href="#Bean对象在容器启动时创建" class="headerlink" title="Bean对象在容器启动时创建"></a>Bean对象在容器启动时创建</h2><p>通过代码结果打印可以看出，在Spring容器启动中，就执行了MyLazy对象的创建动作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">package com.markey.com.markey.annotations.Lazy;</span><br><span class="line"></span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class MyLazy &#123;</span><br><span class="line"></span><br><span class="line">    public MyLazy() &#123;</span><br><span class="line">        System.out.println(&quot;i am construct method of MyLazy&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void sayHello() &#123;</span><br><span class="line">        System.out.println(&quot;hello, i am MyLazy&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package com.markey.annotations;</span><br><span class="line"></span><br><span class="line">import com.markey.com.markey.annotations.Lazy.MyLazy;</span><br><span class="line">import org.junit.Test;</span><br><span class="line">import org.junit.runner.RunWith;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line">import org.springframework.test.context.junit4.SpringRunner;</span><br><span class="line"></span><br><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">@SpringBootTest</span><br><span class="line">public class MyLazyTest &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    MyLazy myLazy;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void MyLazyTest() &#123;</span><br><span class="line">        myLazy.sayHello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/11/18/SpringBoot中的Bean懒加载————-Lazy/没有懒加载.PNG" alt="没有懒加载"></p>
+<h2 id="使用-Lazy，Bean对象在第一次使用时创建"><a href="#使用-Lazy，Bean对象在第一次使用时创建" class="headerlink" title="使用@Lazy，Bean对象在第一次使用时创建"></a>使用@Lazy，Bean对象在第一次使用时创建</h2><p>通过代码结果打印可以看出，在调用MyLazy对象的方式时，才执行了MyLazy的构造方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">package com.markey.com.markey.annotations.Lazy;</span><br><span class="line"></span><br><span class="line">import org.springframework.context.annotation.Lazy;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">@Lazy</span><br><span class="line">public class MyLazy &#123;</span><br><span class="line"></span><br><span class="line">    public MyLazy() &#123;</span><br><span class="line">        System.out.println(&quot;i am construct method of MyLazy&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void sayHello() &#123;</span><br><span class="line">        System.out.println(&quot;hello, i am MyLazy&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/11/18/SpringBoot中的Bean懒加载————-Lazy/懒加载.PNG" alt="懒加载"></p>
 
       
     </div>
@@ -416,7 +412,7 @@
           
             <a href="/tags/笔记/" rel="tag"># 笔记</a>
           
-            <a href="/tags/PostConstruct/" rel="tag"># PostConstruct</a>
+            <a href="/tags/Lazy/" rel="tag"># Lazy</a>
           
         </div>
       
@@ -444,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/16/SpringBoot中的定时任务————-Scheduled/" rel="next" title="SpringBoot中的定时任务————@Scheduled">
-                <i class="fa fa-chevron-left"></i> SpringBoot中的定时任务————@Scheduled
+              <a href="/2018/11/18/SpringBoot中的Bean作用域————-scope/" rel="next" title="SpringBoot中的Bean作用域————@Scope">
+                <i class="fa fa-chevron-left"></i> SpringBoot中的Bean作用域————@Scope
               </a>
             
           </div>
@@ -453,10 +449,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/18/SpringBoot中的Bean作用域————-scope/" rel="prev" title="SpringBoot中的Bean作用域————@Scope">
-                SpringBoot中的Bean作用域————@Scope <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -601,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#注解说明"><span class="nav-number">1.</span> <span class="nav-text">注解说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引入步骤"><span class="nav-number">2.</span> <span class="nav-text">引入步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#示例代码"><span class="nav-number">3.</span> <span class="nav-text">示例代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注解示例"><span class="nav-number">3.1.</span> <span class="nav-text">注解示例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见问题"><span class="nav-number">4.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#错误示例"><span class="nav-number">4.1.</span> <span class="nav-text">错误示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正确示例"><span class="nav-number">4.2.</span> <span class="nav-text">正确示例</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#注解说明"><span class="nav-number">1.</span> <span class="nav-text">注解说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引入步骤"><span class="nav-number">2.</span> <span class="nav-text">引入步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#示例代码"><span class="nav-number">3.</span> <span class="nav-text">示例代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bean对象在容器启动时创建"><span class="nav-number">3.1.</span> <span class="nav-text">Bean对象在容器启动时创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Lazy，Bean对象在第一次使用时创建"><span class="nav-number">3.2.</span> <span class="nav-text">使用@Lazy，Bean对象在第一次使用时创建</span></a></li></ol></li></ol></div>
             
 
           </div>
