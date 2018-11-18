@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="java,log," />
+  <meta name="keywords" content="SpringBoot SpringBoot注解 笔记," />
 
 
 
@@ -79,21 +79,22 @@
 
 
 
-<meta name="description" content="配置log4j属性log4j配置文件支持xml格式和properites格式，下面为例properites介绍需要配置的内容。配置文件分为三部分配置:  日志级别配置 输出目的地配置 输出样式配置  1. 日志级别配置日志级别配置分为两种：根目录级别和包目录基本。顾名思义，根目录级别就是定义总的日志级别，具体到某个特定的包路径下的类，还可以定制日志级别。Log4j自定义的日志级别有：OFF &amp;gt">
-<meta name="keywords" content="java,log">
+<meta name="description" content="注解说明 使用注解： @PostConstruct 效果：在Bean初始化之后（构造方法和@Autowired之后）执行指定操作。经常用在将构造方法中的动作延迟。 备注：Bean初始化时候的执行顺序： 构造方法 -&amp;gt; @Autowired -&amp;gt; @PostConstruct  引入步骤：在自定义的bean初始化方法上加上@PostConstruct 示例代码完整参考代码github 注">
+<meta name="keywords" content="SpringBoot SpringBoot注解 笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="配置log4j属性">
-<meta property="og:url" content="http://yoursite.com/2017/09/17/在spring中使用log4j/index.html">
+<meta property="og:title" content="SpringBoot中的Bean初始化方法——@PostConstruct">
+<meta property="og:url" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/index.html">
 <meta property="og:site_name" content="MaKai&#39;s zone">
-<meta property="og:description" content="配置log4j属性log4j配置文件支持xml格式和properites格式，下面为例properites介绍需要配置的内容。配置文件分为三部分配置:  日志级别配置 输出目的地配置 输出样式配置  1. 日志级别配置日志级别配置分为两种：根目录级别和包目录基本。顾名思义，根目录级别就是定义总的日志级别，具体到某个特定的包路径下的类，还可以定制日志级别。Log4j自定义的日志级别有：OFF &amp;gt">
+<meta property="og:description" content="注解说明 使用注解： @PostConstruct 效果：在Bean初始化之后（构造方法和@Autowired之后）执行指定操作。经常用在将构造方法中的动作延迟。 备注：Bean初始化时候的执行顺序： 构造方法 -&amp;gt; @Autowired -&amp;gt; @PostConstruct  引入步骤：在自定义的bean初始化方法上加上@PostConstruct 示例代码完整参考代码github 注">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/09/17/在spring中使用log4j/log4j配置文件位置.png">
-<meta property="og:image" content="http://yoursite.com/2017/09/17/在spring中使用log4j/log4j配置文件路径.png">
-<meta property="og:updated_time" content="2018-02-07T16:28:41.230Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/init方法运行结果.PNG">
+<meta property="og:image" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/错误示例.PNG">
+<meta property="og:image" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/正确示例.PNG">
+<meta property="og:updated_time" content="2018-11-18T08:22:47.590Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="配置log4j属性">
-<meta name="twitter:description" content="配置log4j属性log4j配置文件支持xml格式和properites格式，下面为例properites介绍需要配置的内容。配置文件分为三部分配置:  日志级别配置 输出目的地配置 输出样式配置  1. 日志级别配置日志级别配置分为两种：根目录级别和包目录基本。顾名思义，根目录级别就是定义总的日志级别，具体到某个特定的包路径下的类，还可以定制日志级别。Log4j自定义的日志级别有：OFF &amp;gt">
-<meta name="twitter:image" content="http://yoursite.com/2017/09/17/在spring中使用log4j/log4j配置文件位置.png">
+<meta name="twitter:title" content="SpringBoot中的Bean初始化方法——@PostConstruct">
+<meta name="twitter:description" content="注解说明 使用注解： @PostConstruct 效果：在Bean初始化之后（构造方法和@Autowired之后）执行指定操作。经常用在将构造方法中的动作延迟。 备注：Bean初始化时候的执行顺序： 构造方法 -&amp;gt; @Autowired -&amp;gt; @PostConstruct  引入步骤：在自定义的bean初始化方法上加上@PostConstruct 示例代码完整参考代码github 注">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/init方法运行结果.PNG">
 
 
 
@@ -123,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/17/在spring中使用log4j/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/"/>
 
 
 
 
 
-  <title>配置log4j属性 | MaKai's zone</title>
+  <title>SpringBoot中的Bean初始化方法——@PostConstruct | MaKai's zone</title>
   
 
 
@@ -266,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/17/在spring中使用log4j/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MaKai">
@@ -283,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">配置log4j属性</h1>
+          <h1 class="post-title" itemprop="name headline">SpringBoot中的Bean初始化方法——@PostConstruct</h1>
         
 
         <div class="post-meta">
@@ -295,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T14:53:00+08:00">
-                2017-09-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-18T15:55:29+08:00">
+                2018-11-18
               </time>
             
 
@@ -318,8 +319,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/日常知识点/" itemprop="url" rel="index">
-                    <span itemprop="name">日常知识点</span>
+                  <a href="/categories/SpringBoot/" itemprop="url" rel="index">
+                    <span itemprop="name">SpringBoot</span>
                   </a>
                 </span>
 
@@ -336,8 +337,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/09/17/在spring中使用log4j/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/09/17/在spring中使用log4j/" itemprop="commentCount"></span>
+                <a href="/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -345,7 +346,7 @@
 
           
           
-             <span id="/2017/09/17/在spring中使用log4j/" class="leancloud_visitors" data-flag-title="配置log4j属性">
+             <span id="/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/" class="leancloud_visitors" data-flag-title="SpringBoot中的Bean初始化方法——@PostConstruct">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -376,58 +377,22 @@
       
 
       
-        <h2 id="配置log4j属性"><a href="#配置log4j属性" class="headerlink" title="配置log4j属性"></a>配置log4j属性</h2><p>log4j配置文件支持xml格式和properites格式，下面为例properites介绍需要配置的内容。<br>配置文件分为三部分配置:</p>
-<ul>
-<li>日志级别配置</li>
-<li>输出目的地配置</li>
-<li>输出样式配置</li>
+        <h1 id="注解说明"><a href="#注解说明" class="headerlink" title="注解说明"></a>注解说明</h1><ul>
+<li><strong>使用注解： @PostConstruct</strong></li>
+<li><strong>效果：在Bean初始化之后（构造方法和@Autowired之后）执行指定操作。经常用在将构造方法中的动作延迟。</strong></li>
+<li><strong>备注：Bean初始化时候的执行顺序： 构造方法 -&gt; @Autowired -&gt; @PostConstruct</strong></li>
 </ul>
-<h3 id="1-日志级别配置"><a href="#1-日志级别配置" class="headerlink" title="1. 日志级别配置"></a>1. 日志级别配置</h3><p>日志级别配置分为两种：根目录级别和包目录基本。<br>顾名思义，根目录级别就是定义总的日志级别，具体到某个特定的包路径下的类，还可以定制日志级别。<br>Log4j自定义的日志级别有：OFF &gt; FATAL &gt; ERROR &gt; WARN &gt; INFO &gt; DEBUG &gt; ALL<br>但是建议只使用ERROR &gt; WARN &gt; INFO &gt; DEBUG 这四种。通过在这里定义的级别，您可以控制到应用程序中相应级别的日志信息的开关。比如在这里定 义了 INFO 级别，则应用程序中所有 DEBUG 级别的日志信息将不被打印出来 。</p>
-<h3 id="2-输出目的地配置"><a href="#2-输出目的地配置" class="headerlink" title="2. 输出目的地配置"></a>2. 输出目的地配置</h3><p>定义输出目的地（appender），定义完成后需要配置根目录启用<br>Log4j 提供的 appender 有以下几种：</p>
-<ul>
-<li>org.apache.log4j.ConsoleAppender （控制台）</li>
-<li>org.apache.log4j.FileAppender （文件）</li>
-<li>org.apache.log4j.DailyRollingFileAppender （每天产生一个日志文件）</li>
-<li>org.apache.log4j.RollingFileAppender （文件大小到达指定尺寸的时候产生一个新的文件）</li>
-<li>org.apache.log4j.WriterAppender （将日志信息以流格式发送到任意指定的地方）</li>
-</ul>
-<h3 id="3-输出样式配置"><a href="#3-输出样式配置" class="headerlink" title="3. 输出样式配置"></a>3. 输出样式配置</h3><p>定义日志样式，在输入目的地配置中使用</p>
-<p>Log4j 提供的 layout 有以下4种：</p>
-<ul>
-<li>org.apache.log4j.HTMLLayout （以 HTML 表格形式布局）</li>
-<li>org.apache.log4j.PatternLayout （可以灵活地指定布局模式）</li>
-<li>org.apache.log4j.SimpleLayout （包含日志信息的级别和信息字符串）</li>
-<li>org.apache.log4j.TTCCLayout （包含日志产生的时间、线程、类别等等信息）</li>
-</ul>
-<p>Log4J 采用类似 C 语言中的 printf 函数的打印格式格式化日志信息，打印参数如下</p>
-<ul>
-<li>%m 输出代码中指定的消息</li>
-<li>%p 输出优先级，即 DEBUG ， INFO ， WARN ， ERROR ， FATAL</li>
-<li>%r 输出自应用启动到输出该 log 信息耗费的毫秒数</li>
-<li>%c 输出所属的类目，通常就是所在类的全名</li>
-<li>%t 输出产生该日志事件的线程名</li>
-<li>%n 输出一个回车换行符， Windows 平台为 “rn” ， Unix 平台为 “n”</li>
-<li>%d 输出日志时间点的日期或时间，默认格式为 ISO8601 ，也可以在其后指定格式，比如： %d{yyy MMM dd HH:mm:ss,SSS} ，输出类似： 2002 年 10 月 18 日 22 ： 10 ： 28 ， 921</li>
-<li>%l 输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。举例： Testlog4.main(TestLog4.java:10)</li>
-</ul>
-<p>Log4j还有其他一些配置：</p>
-<ul>
-<li>指定输出到文件的日志级别：</li>
-<li>指定输出文件路径</li>
-<li>指定输出日志中的日期格式</li>
-<li>指定日志日志文件写入方式是否为文件后追加</li>
-<li>指定日志编码</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">log4j.rootLogger=info,stdout,errorfile,infofile ###格式为[level] ,appender1，appender2，……</span><br><span class="line">log4j.logger.com.markey.messageboard=DEBUG</span><br><span class="line">log4j.logger.com.markey.messageboard.springtest=info</span><br><span class="line"></span><br><span class="line">#console config</span><br><span class="line">log4j.appender.stdout=org.apache.log4j.ConsoleAppender ###定义一个控制台输出目的地</span><br><span class="line">log4j.appender.stdout.layout=org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.stdout.layout.ConversionPattern=%m%n</span><br><span class="line">log4j.appender.stdout.encoding=GB18030</span><br><span class="line"></span><br><span class="line">#errorfile config</span><br><span class="line">log4j.appender.errorfile=org.apache.log4j.DailyRollingFileAppender ###定义一个每日日志输出目的地</span><br><span class="line">log4j.appender.errorfile.File= c:/logs/app_logs/error.log ###输出文件路径</span><br><span class="line">log4j.appender.errorfile.Threshold=error  ###只有error以上级别的日志才会被输出</span><br><span class="line">log4j.appender.errorfile.DatePattern=&apos;.&apos;yyyy-MM-dd ###指定日期格式</span><br><span class="line">log4j.appender.errorfile.Append=true ###指定日志文件以追加方式写入</span><br><span class="line">log4j.appender.errorfile.layout=org.apache.log4j.PatternLayout </span><br><span class="line">log4j.appender.errorfile.layout.ConversionPattern=[%-5p]|%d|%C|%L|%m%n</span><br><span class="line">log4j.appender.errorfile.encoding=GB18030 ###指定日志文件编码</span><br><span class="line"></span><br><span class="line">#infofile config</span><br><span class="line">log4j.appender.infofile=org.apache.log4j.DailyRollingFileAppender </span><br><span class="line">log4j.appender.infofile.File=c:/logs/app_logs/info.log</span><br><span class="line">log4j.appender.infofile.Threshold=info ###只有error以上级别的日志才会被输出</span><br><span class="line">log4j.appender.infofile.DatePattern=&apos;.&apos;yyyy-MM-dd</span><br><span class="line">log4j.appender.infofile.Append=true</span><br><span class="line">log4j.appender.infofile.layout=org.apache.log4j.PatternLayout </span><br><span class="line">log4j.appender.infofile.layout.ConversionPattern=[%-5p]|%d|%C|%L|%m%n</span><br><span class="line">log4j.additivity.infofile=false</span><br><span class="line">log4j.appender.infofile.encoding=GB18030</span><br></pre></td></tr></table></figure>
-<h2 id="加载log4j配置文件"><a href="#加载log4j配置文件" class="headerlink" title="加载log4j配置文件"></a>加载log4j配置文件</h2><h3 id="默认加载"><a href="#默认加载" class="headerlink" title="默认加载"></a>默认加载</h3><p>将log4j.properites文件放在src目录下，log4j框架会自动加载配置文件并应用。<br>例如我的配置文件放在如下位置，则无需其他配置，会被自动加载。</p>
-<p><img src="/2017/09/17/在spring中使用log4j/log4j配置文件位置.png" alt="log4j配置文件位置"></p>
-<h3 id="手动加载"><a href="#手动加载" class="headerlink" title="手动加载"></a>手动加载</h3><p>如果想要使用相对路径加载配置文件，则需要使用到log4j-core中的ConfigurationSource类和Configurator类。<br>例如我把配置文件放在如下src目录下代码的一级目录com下：</p>
-<p>则需要手动进行配置文件的加载，主要逻辑就是：根据相对路劲找到配置文件，使用log4j的配置文件加载器Configurator来加载。</p>
-<p><img src="/2017/09/17/在spring中使用log4j/log4j配置文件路径.png" alt="log4j配置文件路径"></p>
-<ul>
-<li><a href="http://markey.cc" target="_blank" rel="noopener">作者blog</a> </li>
-<li><a href="m00381966@qq.com">联系我</a></li>
-</ul>
+<h1 id="引入步骤："><a href="#引入步骤：" class="headerlink" title="引入步骤："></a>引入步骤：</h1><p>在自定义的bean初始化方法上加上@PostConstruct</p>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><p><a href="https://github.com/markey92/SpringBootTest" target="_blank" rel="noopener">完整参考代码github</a></p>
+<h2 id="注解示例"><a href="#注解示例" class="headerlink" title="注解示例"></a>注解示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line">import javax.annotation.PostConstruct;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class MyPostConstruct &#123;</span><br><span class="line"></span><br><span class="line">    @PostConstruct</span><br><span class="line">    public void init() &#123;</span><br><span class="line">        System.out.println(&quot;this is init method&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br><img src="/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/init方法运行结果.PNG" alt="运行结果"></p>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><p>在Bean的初始化操作中，有时候会遇到调用其他Bean的时候报空指针错误。这时候就可以将调用另一个Bean的方法这个操作放到@PostConstruct注解的方法中，将其延迟执行。</p>
+<p>例如：我们想要在MyPostConstruct方法初始化时调用YourPostConstruct的方法，于是就在MyPostConstruct的构造方法中加入了初始化操作，此时Spring启动会报错。<br>原因：<strong>MyPostConstruct调用YourPostConstruct的方法时，YourPostConstruct这个Bean还没有初始化完成。</strong><br>解决方案：将初始化操作放到@PostConstruct注解的方法中，这样就能保证在调用方法时Bean已经初始化完成。</p>
+<h2 id="错误示例"><a href="#错误示例" class="headerlink" title="错误示例"></a>错误示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class MyPostConstruct &#123;</span><br><span class="line">    </span><br><span class="line">    @Autowired</span><br><span class="line">    YourPostConstruct yourPostConstruct;</span><br><span class="line"></span><br><span class="line">    public MyPostConstruct() &#123;</span><br><span class="line">        yourPostConstruct.sayHello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class YourPostConstruct &#123;</span><br><span class="line"></span><br><span class="line">    public void sayHello() &#123;</span><br><span class="line">        System.out.println(&quot;hello, i am yourPostConstruct&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/错误示例.PNG" alt="错误示例"></p>
+<h2 id="正确示例"><a href="#正确示例" class="headerlink" title="正确示例"></a>正确示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line">import javax.annotation.PostConstruct;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class MyPostConstruct &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    YourPostConstruct yourPostConstruct;</span><br><span class="line"></span><br><span class="line">    @PostConstruct</span><br><span class="line">    public void init() &#123;</span><br><span class="line">        yourPostConstruct.sayHello();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public MyPostConstruct() &#123;</span><br><span class="line">//        yourPostConstruct.sayHello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/11/18/SpringBoot中的Bean初始化方法——-PostConstruct/正确示例.PNG" alt="正确示例"></p>
 
       
     </div>
@@ -445,9 +410,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
-          
-            <a href="/tags/log/" rel="tag"># log</a>
+            <a href="/tags/SpringBoot-SpringBoot注解-笔记/" rel="tag"># SpringBoot SpringBoot注解 笔记</a>
           
         </div>
       
@@ -475,8 +438,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/25/动态规划-走楼梯问题/" rel="next" title="动态规划------走楼梯问题">
-                <i class="fa fa-chevron-left"></i> 动态规划------走楼梯问题
+              <a href="/2018/11/16/SpringBoot中的定时任务————-Scheduled/" rel="next" title="SpringBoot中的定时任务————@Scheduled">
+                <i class="fa fa-chevron-left"></i> SpringBoot中的定时任务————@Scheduled
               </a>
             
           </div>
@@ -484,10 +447,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/28/Hello-World-0/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -632,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置log4j属性"><span class="nav-number">1.</span> <span class="nav-text">配置log4j属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-日志级别配置"><span class="nav-number">1.1.</span> <span class="nav-text">1. 日志级别配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-输出目的地配置"><span class="nav-number">1.2.</span> <span class="nav-text">2. 输出目的地配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-输出样式配置"><span class="nav-number">1.3.</span> <span class="nav-text">3. 输出样式配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载log4j配置文件"><span class="nav-number">2.</span> <span class="nav-text">加载log4j配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认加载"><span class="nav-number">2.1.</span> <span class="nav-text">默认加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手动加载"><span class="nav-number">2.2.</span> <span class="nav-text">手动加载</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#注解说明"><span class="nav-number">1.</span> <span class="nav-text">注解说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引入步骤："><span class="nav-number">2.</span> <span class="nav-text">引入步骤：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#示例代码"><span class="nav-number">3.</span> <span class="nav-text">示例代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注解示例"><span class="nav-number">3.1.</span> <span class="nav-text">注解示例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见问题"><span class="nav-number">4.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#错误示例"><span class="nav-number">4.1.</span> <span class="nav-text">错误示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正确示例"><span class="nav-number">4.2.</span> <span class="nav-text">正确示例</span></a></li></ol></li></ol></div>
             
 
           </div>
