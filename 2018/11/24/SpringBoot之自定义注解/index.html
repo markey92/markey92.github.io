@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/11/24/SpringBoot之自定义注解/Boy注解成功.PNG">
 <meta property="og:image" content="http://yoursite.com/2018/11/24/SpringBoot之自定义注解/Boy注解不生效.PNG">
-<meta property="og:updated_time" content="2018-11-24T15:22:24.541Z">
+<meta property="og:updated_time" content="2018-11-24T15:42:45.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot之自定义注解">
 <meta name="twitter:description" content="步骤 使用@interface 自定义注解 编写注解处理类，实现BeanPostProcessor接口  原理实现BeanPostProcessor接口的类即为Bean后置处理器，Spring加载机制会在所有Bean初始化的时候遍历调用每个Bean后置处理器。其顺序为：Bean实例化-》依赖注入-》Bean后置处理器-》@PostConstruct 缺陷只有在会示例化成Bean的类中使用，注解才会">
@@ -390,7 +390,7 @@
 <p><img src="/2018/11/24/SpringBoot之自定义注解/Boy注解成功.PNG" alt="运行结果"></p>
 <h1 id="注解无效示例"><a href="#注解无效示例" class="headerlink" title="注解无效示例"></a>注解无效示例</h1><h2 id="测试类-1"><a href="#测试类-1" class="headerlink" title="测试类"></a>测试类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import com.markey.annotations.Boy.HelloBoy;</span><br><span class="line">import org.junit.Test;</span><br><span class="line">import org.junit.runner.RunWith;</span><br><span class="line">import org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line">import org.springframework.test.context.junit4.SpringRunner;</span><br><span class="line"></span><br><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">@SpringBootTest</span><br><span class="line">public class HelloBoyTest &#123;</span><br><span class="line"></span><br><span class="line">    HelloBoy helloBoy = new HelloBoy(); //新建的对象，不是容器中的Bean</span><br><span class="line">    @Test</span><br><span class="line">    public void HelloBoyTest() &#123;</span><br><span class="line">        helloBoy.sayHello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/11/24/SpringBoot之自定义注解/Boy注解不生效.PNG" alt="运行结果"></p>
-<p><strong>Tips</strong><br>其实Spring原生的那些注解（例如@Autowired，其处理类是AutowiredAnnotationBeanPostProcessor）,也是通过实现BeanPostProcessor接口这种方式来实现的。</p>
+<p><strong>Tips</strong><br>其实Spring很多原生注解（例如@Autowired，其处理类是AutowiredAnnotationBeanPostProcessor）,也是通过实现BeanPostProcessor接口这种方式来实现的。</p>
 
       
     </div>
