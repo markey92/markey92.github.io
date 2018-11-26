@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hexo,hexo-next," />
+  <meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,自定义注解," />
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="使用NeedMoreShare2分享插件无法生成二维码 插件原使用的微信二维码生成api目前暂时无法使用（https://github.com/revir/need-more-share2/） 修改NeedMoreShare2插件生成二维码的js代码，使用QR Code Generator  123// 修改themes\next\source\lib\needsharebutton\needsh">
-<meta name="keywords" content="hexo,hexo-next">
+<meta name="description" content="步骤 使用@interface 自定义注解 编写注解处理切面类  原理通过注解来指定切点 缺陷使用Spring AOP实现的切面类只能作用在方法上，所以，基于Spring AOP的自定义注解也只能添加在方法上 代码示例完整参考代码github 自定义注解1234567891011import org.springframework.stereotype.Component;import java.">
+<meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,自定义注解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo的那些坑儿">
-<meta property="og:url" content="http://yoursite.com/2018/02/18/hexo的那些坑儿/index.html">
+<meta property="og:title" content="SpringBoot之自定义注解（基于AOP实现）">
+<meta property="og:url" content="http://yoursite.com/2018/11/26/SpringBoot之自定义注解（基于AOP实现）/index.html">
 <meta property="og:site_name" content="MaKai&#39;s zone">
-<meta property="og:description" content="使用NeedMoreShare2分享插件无法生成二维码 插件原使用的微信二维码生成api目前暂时无法使用（https://github.com/revir/need-more-share2/） 修改NeedMoreShare2插件生成二维码的js代码，使用QR Code Generator  123// 修改themes\next\source\lib\needsharebutton\needsh">
+<meta property="og:description" content="步骤 使用@interface 自定义注解 编写注解处理切面类  原理通过注解来指定切点 缺陷使用Spring AOP实现的切面类只能作用在方法上，所以，基于Spring AOP的自定义注解也只能添加在方法上 代码示例完整参考代码github 自定义注解1234567891011import org.springframework.stereotype.Component;import java.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-18T15:14:50.765Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/26/SpringBoot之自定义注解（基于AOP实现）/girl注解.PNG">
+<meta property="og:updated_time" content="2018-11-26T15:54:23.852Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo的那些坑儿">
-<meta name="twitter:description" content="使用NeedMoreShare2分享插件无法生成二维码 插件原使用的微信二维码生成api目前暂时无法使用（https://github.com/revir/need-more-share2/） 修改NeedMoreShare2插件生成二维码的js代码，使用QR Code Generator  123// 修改themes\next\source\lib\needsharebutton\needsh">
+<meta name="twitter:title" content="SpringBoot之自定义注解（基于AOP实现）">
+<meta name="twitter:description" content="步骤 使用@interface 自定义注解 编写注解处理切面类  原理通过注解来指定切点 缺陷使用Spring AOP实现的切面类只能作用在方法上，所以，基于Spring AOP的自定义注解也只能添加在方法上 代码示例完整参考代码github 自定义注解1234567891011import org.springframework.stereotype.Component;import java.">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/26/SpringBoot之自定义注解（基于AOP实现）/girl注解.PNG">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/18/hexo的那些坑儿/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/26/SpringBoot之自定义注解（基于AOP实现）/"/>
 
 
 
 
 
-  <title>hexo的那些坑儿 | MaKai's zone</title>
+  <title>SpringBoot之自定义注解（基于AOP实现） | MaKai's zone</title>
   
 
 
@@ -263,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/18/hexo的那些坑儿/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/26/SpringBoot之自定义注解（基于AOP实现）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MaKai">
@@ -280,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo的那些坑儿</h1>
+          <h1 class="post-title" itemprop="name headline">SpringBoot之自定义注解（基于AOP实现）</h1>
         
 
         <div class="post-meta">
@@ -292,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-18T21:09:42+08:00">
-                2018-02-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-26T23:29:38+08:00">
+                2018-11-26
               </time>
             
 
@@ -315,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
+                  <a href="/categories/SpringBoot注解/" itemprop="url" rel="index">
+                    <span itemprop="name">SpringBoot注解</span>
                   </a>
                 </span>
 
@@ -333,8 +335,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/02/18/hexo的那些坑儿/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/02/18/hexo的那些坑儿/" itemprop="commentCount"></span>
+                <a href="/2018/11/26/SpringBoot之自定义注解（基于AOP实现）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/26/SpringBoot之自定义注解（基于AOP实现）/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -342,7 +344,7 @@
 
           
           
-             <span id="/2018/02/18/hexo的那些坑儿/" class="leancloud_visitors" data-flag-title="hexo的那些坑儿">
+             <span id="/2018/11/26/SpringBoot之自定义注解（基于AOP实现）/" class="leancloud_visitors" data-flag-title="SpringBoot之自定义注解（基于AOP实现）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -373,11 +375,21 @@
       
 
       
-        <h1 id="使用NeedMoreShare2分享插件无法生成二维码"><a href="#使用NeedMoreShare2分享插件无法生成二维码" class="headerlink" title="使用NeedMoreShare2分享插件无法生成二维码"></a>使用NeedMoreShare2分享插件无法生成二维码</h1><ul>
-<li>插件原使用的微信二维码生成api目前暂时无法使用（<a href="https://github.com/revir/need-more-share2/）" target="_blank" rel="noopener">https://github.com/revir/need-more-share2/）</a></li>
-<li>修改NeedMoreShare2插件生成二维码的js代码，使用QR Code Generator</li>
+        <h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
+<li>使用@interface 自定义注解</li>
+<li>编写注解处理切面类</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 修改themes\next\source\lib\needsharebutton\needsharebutton.js</span><br><span class="line">// var imgSrc = &quot;https://api.qinco.me/api/qr?size=400&amp;content=&quot; + encodeURIComponent(myoptions.url);</span><br><span class="line">var imgSrc = &quot;http://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=&quot; + encodeURIComponent(myoptions.url);</span><br></pre></td></tr></table></figure>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>通过注解来指定切点</p>
+<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><p>使用Spring AOP实现的切面类只能作用在方法上，所以，基于Spring AOP的自定义注解也只能添加在方法上</p>
+<h1 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h1><p><a href="https://github.com/markey92/SpringBootTest" target="_blank" rel="noopener">完整参考代码github</a></p>
+<h2 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">import java.lang.annotation.*;</span><br><span class="line"></span><br><span class="line">@Target(&#123;ElementType.METHOD&#125;) //基于Spring AOP的注解只能作用在方法上</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Documented</span><br><span class="line">@Component</span><br><span class="line">public @interface Girl &#123;</span><br><span class="line">    String value() default &quot;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="定义处理注解的切面"><a href="#定义处理注解的切面" class="headerlink" title="定义处理注解的切面"></a>定义处理注解的切面</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import org.aspectj.lang.JoinPoint;</span><br><span class="line">import org.aspectj.lang.annotation.Aspect;</span><br><span class="line">import org.aspectj.lang.annotation.Before;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">@Aspect</span><br><span class="line">@Component</span><br><span class="line">public class GirlAnnotationAop &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * @Before 表示在方法执行前运行切面逻辑</span><br><span class="line">     * value值定义了切点，此次使用注解来指定切点</span><br><span class="line">     * @annotation（参数） 如果自定义的注解不需要参数，则可以为@annotation(类名)</span><br><span class="line">     * &amp;&amp; 连接多个指定切点的条件</span><br><span class="line">     * args(name) 用来获取被注解的方法的参数</span><br><span class="line">     */</span><br><span class="line">    @Before(value=&quot;@annotation(girl) &amp;&amp; args(name)&quot;)</span><br><span class="line">    public void dofore(JoinPoint joinPoint,Girl girl, String name) &#123;</span><br><span class="line">        System.out.println(&quot;the girl is &quot; + girl.value());</span><br><span class="line">        System.out.println(&quot;she will say hello to &quot; + name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="注解使用类"><a href="#注解使用类" class="headerlink" title="注解使用类"></a>注解使用类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class HelloGirl &#123;</span><br><span class="line"></span><br><span class="line">    @Girl(&quot;小红&quot;)</span><br><span class="line">    public void sayHello(String name) &#123;</span><br><span class="line">        System.out.println(&quot;hello, &quot; + name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import com.markey.annotations.Girl.HelloGirl;</span><br><span class="line">import org.junit.Test;</span><br><span class="line">import org.junit.runner.RunWith;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line">import org.springframework.test.context.junit4.SpringRunner;</span><br><span class="line"></span><br><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">@SpringBootTest</span><br><span class="line">public class HelloGirlTest &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    HelloGirl helloGirl;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void HelloGirlTest() &#123;</span><br><span class="line">        helloGirl.sayHello(&quot;world&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/11/26/SpringBoot之自定义注解（基于AOP实现）/girl注解.PNG" alt="运行结果"></p>
+<p><strong>Tips</strong></p>
+<p>– 使用Spring AOP也可以处理属性注解，大概处理流程是编写切面处理某个类的某个方法，然后通过Java反射的方式再获得这个类的具有自定义注解的属性。但是这样的话，其实也是只有在调用这个方法的时候，注解才会生效。（可以参考我的<a href="http://markey.cc/2018/11/24/SpringBoot%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/" target="_blank" rel="noopener">上一篇文章</a>）<br>– 使用AspectJ来做切面，就没有只能作用在方法上这种缺陷。</p>
+
       
     </div>
     
@@ -394,9 +406,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
           
-            <a href="/tags/hexo-next/" rel="tag"># hexo-next</a>
+            <a href="/tags/SpringBoot注解/" rel="tag"># SpringBoot注解</a>
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
+          
+            <a href="/tags/自定义注解/" rel="tag"># 自定义注解</a>
           
         </div>
       
@@ -424,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/14/LeetCode小笔记/" rel="next" title="LeetCode小笔记">
-                <i class="fa fa-chevron-left"></i> LeetCode小笔记
+              <a href="/2018/11/24/SpringBoot之自定义注解/" rel="next" title="SpringBoot之自定义注解（基于BeanPostProcessor接口实现）">
+                <i class="fa fa-chevron-left"></i> SpringBoot之自定义注解（基于BeanPostProcessor接口实现）
               </a>
             
           </div>
@@ -433,10 +449,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/13/sudo执行脚本失败command-not-found问题/" rel="prev" title="bash脚本执行失败问题">
-                bash脚本执行失败问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -581,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用NeedMoreShare2分享插件无法生成二维码"><span class="nav-number">1.</span> <span class="nav-text">使用NeedMoreShare2分享插件无法生成二维码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#步骤"><span class="nav-number">1.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原理"><span class="nav-number">2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缺陷"><span class="nav-number">3.</span> <span class="nav-text">缺陷</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码示例"><span class="nav-number">4.</span> <span class="nav-text">代码示例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义注解"><span class="nav-number">4.1.</span> <span class="nav-text">自定义注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义处理注解的切面"><span class="nav-number">4.2.</span> <span class="nav-text">定义处理注解的切面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注解使用类"><span class="nav-number">4.3.</span> <span class="nav-text">注解使用类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试类"><span class="nav-number">4.4.</span> <span class="nav-text">测试类</span></a></li></ol></li></ol></div>
             
 
           </div>

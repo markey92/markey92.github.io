@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,Scope," />
+  <meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,自定义注解," />
 
 
 
@@ -80,18 +80,18 @@
 
 
 <meta name="description" content="步骤 使用@interface 自定义注解 编写注解处理类，实现BeanPostProcessor接口  原理实现BeanPostProcessor接口的类即为Bean后置处理器，Spring加载机制会在所有Bean初始化的时候遍历调用每个Bean后置处理器。其顺序为：Bean实例化-》依赖注入-》Bean后置处理器-》@PostConstruct 缺陷只有在会示例化成Bean的类中使用，注解才会">
-<meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,Scope">
+<meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,自定义注解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot之自定义注解">
+<meta property="og:title" content="SpringBoot之自定义注解（基于BeanPostProcessor接口实现）">
 <meta property="og:url" content="http://yoursite.com/2018/11/24/SpringBoot之自定义注解/index.html">
 <meta property="og:site_name" content="MaKai&#39;s zone">
 <meta property="og:description" content="步骤 使用@interface 自定义注解 编写注解处理类，实现BeanPostProcessor接口  原理实现BeanPostProcessor接口的类即为Bean后置处理器，Spring加载机制会在所有Bean初始化的时候遍历调用每个Bean后置处理器。其顺序为：Bean实例化-》依赖注入-》Bean后置处理器-》@PostConstruct 缺陷只有在会示例化成Bean的类中使用，注解才会">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/11/24/SpringBoot之自定义注解/Boy注解成功.PNG">
 <meta property="og:image" content="http://yoursite.com/2018/11/24/SpringBoot之自定义注解/Boy注解不生效.PNG">
-<meta property="og:updated_time" content="2018-11-24T15:42:45.868Z">
+<meta property="og:updated_time" content="2018-11-26T15:54:22.309Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot之自定义注解">
+<meta name="twitter:title" content="SpringBoot之自定义注解（基于BeanPostProcessor接口实现）">
 <meta name="twitter:description" content="步骤 使用@interface 自定义注解 编写注解处理类，实现BeanPostProcessor接口  原理实现BeanPostProcessor接口的类即为Bean后置处理器，Spring加载机制会在所有Bean初始化的时候遍历调用每个Bean后置处理器。其顺序为：Bean实例化-》依赖注入-》Bean后置处理器-》@PostConstruct 缺陷只有在会示例化成Bean的类中使用，注解才会">
 <meta name="twitter:image" content="http://yoursite.com/2018/11/24/SpringBoot之自定义注解/Boy注解成功.PNG">
 
@@ -129,7 +129,7 @@
 
 
 
-  <title>SpringBoot之自定义注解 | MaKai's zone</title>
+  <title>SpringBoot之自定义注解（基于BeanPostProcessor接口实现） | MaKai's zone</title>
   
 
 
@@ -283,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SpringBoot之自定义注解</h1>
+          <h1 class="post-title" itemprop="name headline">SpringBoot之自定义注解（基于BeanPostProcessor接口实现）</h1>
         
 
         <div class="post-meta">
@@ -345,7 +345,7 @@
 
           
           
-             <span id="/2018/11/24/SpringBoot之自定义注解/" class="leancloud_visitors" data-flag-title="SpringBoot之自定义注解">
+             <span id="/2018/11/24/SpringBoot之自定义注解/" class="leancloud_visitors" data-flag-title="SpringBoot之自定义注解（基于BeanPostProcessor接口实现）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -414,7 +414,7 @@
           
             <a href="/tags/笔记/" rel="tag"># 笔记</a>
           
-            <a href="/tags/Scope/" rel="tag"># Scope</a>
+            <a href="/tags/自定义注解/" rel="tag"># 自定义注解</a>
           
         </div>
       
@@ -451,6 +451,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/26/SpringBoot之自定义注解（基于AOP实现）/" rel="prev" title="SpringBoot之自定义注解（基于AOP实现）">
+                SpringBoot之自定义注解（基于AOP实现） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -530,7 +534,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -552,7 +556,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
