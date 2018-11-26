@@ -88,7 +88,7 @@
 <meta property="og:description" content="步骤 使用@interface 自定义注解 编写注解处理切面类  原理通过注解来指定切点 缺陷使用Spring AOP实现的切面类只能作用在方法上，所以，基于Spring AOP的自定义注解也只能添加在方法上 代码示例完整参考代码github 自定义注解1234567891011import org.springframework.stereotype.Component;import java.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/11/26/SpringBoot之自定义注解（基于AOP实现）/girl注解.PNG">
-<meta property="og:updated_time" content="2018-11-26T15:54:23.852Z">
+<meta property="og:updated_time" content="2018-11-26T15:58:08.855Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot之自定义注解（基于AOP实现）">
 <meta name="twitter:description" content="步骤 使用@interface 自定义注解 编写注解处理切面类  原理通过注解来指定切点 缺陷使用Spring AOP实现的切面类只能作用在方法上，所以，基于Spring AOP的自定义注解也只能添加在方法上 代码示例完整参考代码github 自定义注解1234567891011import org.springframework.stereotype.Component;import java.">
@@ -388,7 +388,10 @@
 <h2 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import com.markey.annotations.Girl.HelloGirl;</span><br><span class="line">import org.junit.Test;</span><br><span class="line">import org.junit.runner.RunWith;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line">import org.springframework.test.context.junit4.SpringRunner;</span><br><span class="line"></span><br><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">@SpringBootTest</span><br><span class="line">public class HelloGirlTest &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    HelloGirl helloGirl;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void HelloGirlTest() &#123;</span><br><span class="line">        helloGirl.sayHello(&quot;world&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/11/26/SpringBoot之自定义注解（基于AOP实现）/girl注解.PNG" alt="运行结果"></p>
 <p><strong>Tips</strong></p>
-<p>– 使用Spring AOP也可以处理属性注解，大概处理流程是编写切面处理某个类的某个方法，然后通过Java反射的方式再获得这个类的具有自定义注解的属性。但是这样的话，其实也是只有在调用这个方法的时候，注解才会生效。（可以参考我的<a href="http://markey.cc/2018/11/24/SpringBoot%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/" target="_blank" rel="noopener">上一篇文章</a>）<br>– 使用AspectJ来做切面，就没有只能作用在方法上这种缺陷。</p>
+<ul>
+<li>使用Spring AOP也可以处理属性注解，大概处理流程是编写切面处理某个类的某个方法，然后通过Java反射的方式再获得这个类的具有自定义注解的属性。但是这样的话，其实也是只有在调用这个方法的时候，注解才会生效。（可以参考我的<a href="http://markey.cc/2018/11/24/SpringBoot%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/" target="_blank" rel="noopener">上一篇文章</a>）</li>
+<li>使用AspectJ来做切面，就没有只能作用在方法上这种缺陷。</li>
+</ul>
 
       
     </div>
