@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/12/09/SpringCloud入门之服务注册/服务启动成功.PNG">
 <meta property="og:image" content="http://yoursite.com/2018/12/09/SpringCloud入门之服务注册/服务注册成功.PNG">
-<meta property="og:updated_time" content="2018-12-09T09:08:02.247Z">
+<meta property="og:updated_time" content="2018-12-09T11:02:25.352Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringCloud入门(二)之服务注册">
 <meta name="twitter:description" content="什么是EurekaEureka是Spring Cloud Netflix微服务套件中的一部分。Eureka分为服务端和客户端。  Eureka服务端也被称为服务注册中心。用于提供服务注册、发现功能。 Eureka客户端被服务提供者和服务消费者集成，实现了服务心跳维持、服务查询等功能。  如何启动一个注册中心，请参考SpringCloud入门之Eureka注册中心 下面我们来实战下Euraka客户端">
@@ -392,7 +392,7 @@
 </li>
 </ol>
 <h2 id="引入Eureka依赖"><a href="#引入Eureka依赖" class="headerlink" title="引入Eureka依赖"></a>引入Eureka依赖</h2><p>在pom文件加入以下依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 <p> ps：这里没有指定版本，是因为使用spring-cloud-dependencies，版本号Greenwich.M3，读者如果没有引用spring-cloud-dependencies的话，可以自行给Eureka依赖加上版本号2.1.0.M3</p>
 <h2 id="使用注解-EnableEurekaClient声明作为Euraka客户端"><a href="#使用注解-EnableEurekaClient声明作为Euraka客户端" class="headerlink" title="使用注解@EnableEurekaClient声明作为Euraka客户端"></a>使用注解@EnableEurekaClient声明作为Euraka客户端</h2><p>在SpringBoot的启动类中加入注解</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.netflix.eureka.EnableEurekaClient;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableEurekaClient</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServiceApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(ServiceApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -464,6 +464,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/09/SpringCloud入门之基于Feign的服务间接口调用/" rel="prev" title="SpringCloud入门（三）之基于Feign的服务间接口调用">
+                SpringCloud入门（三）之基于Feign的服务间接口调用 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -543,7 +547,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
