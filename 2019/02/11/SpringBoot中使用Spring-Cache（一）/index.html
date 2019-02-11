@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Spring Cache简介在很多频繁调用方法的场景，假如我们不需要每次调用的方法都是实时更新的，此时可以使用缓存机制。缓存实现方式有很多种，可以使用redis、本地内存缓存、各种Cache框架。而在SpringBoot框架中，天然支持Spring Cache的使用，且接入尤为简单。 Spring Cache的简单原理：依赖于Spring Bean的切面机制来实现缓存，针对每个@CacheConf">
+<meta name="description" content="Spring Cache简介在很多频繁调用方法的场景，假如我们不需要每次调用的方法都是实时更新的，此时可以使用缓存机制。缓存实现方式有很多种，可以使用redis、本地内存缓存、各种Cache框架。而在SpringBoot框架中，天然支持Spring Cache的使用，且接入尤为简单。 Spring Cache的简单原理依赖于Spring Bean的切面机制来实现缓存，针对每个@CacheConfi">
 <meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,Cache">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot中使用Spring Cache（一）">
 <meta property="og:url" content="http://yoursite.com/2019/02/11/SpringBoot中使用Spring-Cache（一）/index.html">
 <meta property="og:site_name" content="MaKai&#39;s zone">
-<meta property="og:description" content="Spring Cache简介在很多频繁调用方法的场景，假如我们不需要每次调用的方法都是实时更新的，此时可以使用缓存机制。缓存实现方式有很多种，可以使用redis、本地内存缓存、各种Cache框架。而在SpringBoot框架中，天然支持Spring Cache的使用，且接入尤为简单。 Spring Cache的简单原理：依赖于Spring Bean的切面机制来实现缓存，针对每个@CacheConf">
+<meta property="og:description" content="Spring Cache简介在很多频繁调用方法的场景，假如我们不需要每次调用的方法都是实时更新的，此时可以使用缓存机制。缓存实现方式有很多种，可以使用redis、本地内存缓存、各种Cache框架。而在SpringBoot框架中，天然支持Spring Cache的使用，且接入尤为简单。 Spring Cache的简单原理依赖于Spring Bean的切面机制来实现缓存，针对每个@CacheConfi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-11T14:36:54.814Z">
+<meta property="og:updated_time" content="2019-02-11T14:41:50.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot中使用Spring Cache（一）">
-<meta name="twitter:description" content="Spring Cache简介在很多频繁调用方法的场景，假如我们不需要每次调用的方法都是实时更新的，此时可以使用缓存机制。缓存实现方式有很多种，可以使用redis、本地内存缓存、各种Cache框架。而在SpringBoot框架中，天然支持Spring Cache的使用，且接入尤为简单。 Spring Cache的简单原理：依赖于Spring Bean的切面机制来实现缓存，针对每个@CacheConf">
+<meta name="twitter:description" content="Spring Cache简介在很多频繁调用方法的场景，假如我们不需要每次调用的方法都是实时更新的，此时可以使用缓存机制。缓存实现方式有很多种，可以使用redis、本地内存缓存、各种Cache框架。而在SpringBoot框架中，天然支持Spring Cache的使用，且接入尤为简单。 Spring Cache的简单原理依赖于Spring Bean的切面机制来实现缓存，针对每个@CacheConfi">
 
 
 
@@ -374,7 +374,8 @@
 
       
         <h1 id="Spring-Cache简介"><a href="#Spring-Cache简介" class="headerlink" title="Spring Cache简介"></a>Spring Cache简介</h1><p>在很多频繁调用方法的场景，假如我们不需要每次调用的方法都是实时更新的，此时可以使用缓存机制。缓存实现方式有很多种，可以使用redis、本地内存缓存、各种Cache框架。而在SpringBoot框架中，天然支持Spring Cache的使用，且接入尤为简单。</p>
-<h2 id="Spring-Cache的简单原理：依赖于Spring-Bean的切面机制来实现缓存，针对每个-CacheConfig的方法进行切面织入，在实际调用前先进行缓存查询。注解切面简介"><a href="#Spring-Cache的简单原理：依赖于Spring-Bean的切面机制来实现缓存，针对每个-CacheConfig的方法进行切面织入，在实际调用前先进行缓存查询。注解切面简介" class="headerlink" title="Spring Cache的简单原理：依赖于Spring Bean的切面机制来实现缓存，针对每个@CacheConfig的方法进行切面织入，在实际调用前先进行缓存查询。注解切面简介"></a>Spring Cache的简单原理：依赖于Spring Bean的切面机制来实现缓存，针对每个@CacheConfig的方法进行切面织入，在实际调用前先进行缓存查询。<a href="http://markey.cc/2018/11/26/SpringBoot%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%EF%BC%88%E5%9F%BA%E4%BA%8EAOP%E5%AE%9E%E7%8E%B0%EF%BC%89/" target="_blank" rel="noopener">注解切面简介</a></h2><h2 id="Spring-Cache缺陷："><a href="#Spring-Cache缺陷：" class="headerlink" title="Spring Cache缺陷："></a>Spring Cache缺陷：</h2><ul>
+<h2 id="Spring-Cache的简单原理"><a href="#Spring-Cache的简单原理" class="headerlink" title="Spring Cache的简单原理"></a>Spring Cache的简单原理</h2><p>依赖于Spring Bean的切面机制来实现缓存，针对每个@CacheConfig的方法进行切面织入，在实际调用前先进行缓存查询。<a href="http://markey.cc/2018/11/26/SpringBoot%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%EF%BC%88%E5%9F%BA%E4%BA%8EAOP%E5%AE%9E%E7%8E%B0%EF%BC%89/" target="_blank" rel="noopener">注解切面简介</a></p>
+<h2 id="Spring-Cache缺陷："><a href="#Spring-Cache缺陷：" class="headerlink" title="Spring Cache缺陷："></a>Spring Cache缺陷：</h2><ul>
 <li>使用缓存的类必须是Bean，否则无法注入切面。</li>
 <li>必须是不同Bean之间的方法调用，否则无法触发切面。<a href="https://my.oschina.net/longyuan/blog/714355" target="_blank" rel="noopener">规避方法</a></li>
 </ul>
@@ -598,7 +599,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Cache简介"><span class="nav-number">1.</span> <span class="nav-text">Spring Cache简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Cache的简单原理：依赖于Spring-Bean的切面机制来实现缓存，针对每个-CacheConfig的方法进行切面织入，在实际调用前先进行缓存查询。注解切面简介"><span class="nav-number">1.1.</span> <span class="nav-text">Spring Cache的简单原理：依赖于Spring Bean的切面机制来实现缓存，针对每个@CacheConfig的方法进行切面织入，在实际调用前先进行缓存查询。注解切面简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Cache缺陷："><span class="nav-number">1.2.</span> <span class="nav-text">Spring Cache缺陷：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Cache使用方法"><span class="nav-number">2.</span> <span class="nav-text">Spring Cache使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入Spring-Cache依赖"><span class="nav-number">2.1.</span> <span class="nav-text">引入Spring Cache依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启缓存功能"><span class="nav-number">2.2.</span> <span class="nav-text">开启缓存功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存配置"><span class="nav-number">2.3.</span> <span class="nav-text">缓存配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置说明"><span class="nav-number">2.4.</span> <span class="nav-text">配置说明</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置无效原因"><span class="nav-number">3.</span> <span class="nav-text">配置无效原因</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务类内部方法调用并不触发缓存动作"><span class="nav-number">3.1.</span> <span class="nav-text">服务类内部方法调用并不触发缓存动作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法未在接口中定义"><span class="nav-number">3.2.</span> <span class="nav-text">方法未在接口中定义</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Cache简介"><span class="nav-number">1.</span> <span class="nav-text">Spring Cache简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Cache的简单原理"><span class="nav-number">1.1.</span> <span class="nav-text">Spring Cache的简单原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Cache缺陷："><span class="nav-number">1.2.</span> <span class="nav-text">Spring Cache缺陷：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Cache使用方法"><span class="nav-number">2.</span> <span class="nav-text">Spring Cache使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入Spring-Cache依赖"><span class="nav-number">2.1.</span> <span class="nav-text">引入Spring Cache依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启缓存功能"><span class="nav-number">2.2.</span> <span class="nav-text">开启缓存功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存配置"><span class="nav-number">2.3.</span> <span class="nav-text">缓存配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置说明"><span class="nav-number">2.4.</span> <span class="nav-text">配置说明</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置无效原因"><span class="nav-number">3.</span> <span class="nav-text">配置无效原因</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务类内部方法调用并不触发缓存动作"><span class="nav-number">3.1.</span> <span class="nav-text">服务类内部方法调用并不触发缓存动作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法未在接口中定义"><span class="nav-number">3.2.</span> <span class="nav-text">方法未在接口中定义</span></a></li></ol></li></ol></div>
             
 
           </div>
