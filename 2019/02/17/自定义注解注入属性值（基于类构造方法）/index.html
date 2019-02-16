@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,Cache," />
+  <meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,自定义注解," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Spring Cache简介在很多频繁调用方法的场景，假如我们不需要每次调用的方法都是实时更新的，此时可以使用缓存机制。缓存实现方式有很多种，可以使用redis、本地内存缓存、各种Cache框架。而在SpringBoot框架中，天然支持Spring Cache的使用，且接入尤为简单。 Spring Cache的简单原理依赖于Spring Bean的切面机制来实现缓存，针对每个@CacheConfi">
-<meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,Cache">
+<meta name="description" content="本文将举例说明如何通过构造方法来处理注解，实现属性注入  自定义注解Name 实现超类，定义注解处理方法 子类使用注解  自定义注解Name定义一个注解“Name”，Name注解可以接收一个String类型的属性，并且可以使用在类或者属性上 12345678@Target(&amp;#123;ElementType.TYPE, ElementType.FIELD&amp;#125;)@Retention(Rete">
+<meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,自定义注解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot中使用Spring Cache（一）">
-<meta property="og:url" content="http://yoursite.com/2019/02/11/SpringBoot中使用Spring-Cache（一）/index.html">
+<meta property="og:title" content="自定义注解注入属性值（基于类构造方法）">
+<meta property="og:url" content="http://yoursite.com/2019/02/17/自定义注解注入属性值（基于类构造方法）/index.html">
 <meta property="og:site_name" content="MaKai&#39;s zone">
-<meta property="og:description" content="Spring Cache简介在很多频繁调用方法的场景，假如我们不需要每次调用的方法都是实时更新的，此时可以使用缓存机制。缓存实现方式有很多种，可以使用redis、本地内存缓存、各种Cache框架。而在SpringBoot框架中，天然支持Spring Cache的使用，且接入尤为简单。 Spring Cache的简单原理依赖于Spring Bean的切面机制来实现缓存，针对每个@CacheConfi">
+<meta property="og:description" content="本文将举例说明如何通过构造方法来处理注解，实现属性注入  自定义注解Name 实现超类，定义注解处理方法 子类使用注解  自定义注解Name定义一个注解“Name”，Name注解可以接收一个String类型的属性，并且可以使用在类或者属性上 12345678@Target(&amp;#123;ElementType.TYPE, ElementType.FIELD&amp;#125;)@Retention(Rete">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-11T14:41:50.822Z">
+<meta property="og:updated_time" content="2019-02-16T17:25:16.768Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot中使用Spring Cache（一）">
-<meta name="twitter:description" content="Spring Cache简介在很多频繁调用方法的场景，假如我们不需要每次调用的方法都是实时更新的，此时可以使用缓存机制。缓存实现方式有很多种，可以使用redis、本地内存缓存、各种Cache框架。而在SpringBoot框架中，天然支持Spring Cache的使用，且接入尤为简单。 Spring Cache的简单原理依赖于Spring Bean的切面机制来实现缓存，针对每个@CacheConfi">
+<meta name="twitter:title" content="自定义注解注入属性值（基于类构造方法）">
+<meta name="twitter:description" content="本文将举例说明如何通过构造方法来处理注解，实现属性注入  自定义注解Name 实现超类，定义注解处理方法 子类使用注解  自定义注解Name定义一个注解“Name”，Name注解可以接收一个String类型的属性，并且可以使用在类或者属性上 12345678@Target(&amp;#123;ElementType.TYPE, ElementType.FIELD&amp;#125;)@Retention(Rete">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/11/SpringBoot中使用Spring-Cache（一）/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/02/17/自定义注解注入属性值（基于类构造方法）/"/>
 
 
 
 
 
-  <title>SpringBoot中使用Spring Cache（一） | MaKai's zone</title>
+  <title>自定义注解注入属性值（基于类构造方法） | MaKai's zone</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/11/SpringBoot中使用Spring-Cache（一）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/17/自定义注解注入属性值（基于类构造方法）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MaKai">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SpringBoot中使用Spring Cache（一）</h1>
+          <h1 class="post-title" itemprop="name headline">自定义注解注入属性值（基于类构造方法）</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-11T22:29:55+08:00">
-                2019-02-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-17T01:03:58+08:00">
+                2019-02-17
               </time>
             
 
@@ -333,8 +333,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/11/SpringBoot中使用Spring-Cache（一）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/11/SpringBoot中使用Spring-Cache（一）/" itemprop="commentCount"></span>
+                <a href="/2019/02/17/自定义注解注入属性值（基于类构造方法）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/17/自定义注解注入属性值（基于类构造方法）/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -342,7 +342,7 @@
 
           
           
-             <span id="/2019/02/11/SpringBoot中使用Spring-Cache（一）/" class="leancloud_visitors" data-flag-title="SpringBoot中使用Spring Cache（一）">
+             <span id="/2019/02/17/自定义注解注入属性值（基于类构造方法）/" class="leancloud_visitors" data-flag-title="自定义注解注入属性值（基于类构造方法）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -373,28 +373,39 @@
       
 
       
-        <h1 id="Spring-Cache简介"><a href="#Spring-Cache简介" class="headerlink" title="Spring Cache简介"></a>Spring Cache简介</h1><p>在很多频繁调用方法的场景，假如我们不需要每次调用的方法都是实时更新的，此时可以使用缓存机制。缓存实现方式有很多种，可以使用redis、本地内存缓存、各种Cache框架。而在SpringBoot框架中，天然支持Spring Cache的使用，且接入尤为简单。</p>
-<h2 id="Spring-Cache的简单原理"><a href="#Spring-Cache的简单原理" class="headerlink" title="Spring Cache的简单原理"></a>Spring Cache的简单原理</h2><p>依赖于Spring Bean的切面机制来实现缓存，针对每个@CacheConfig的方法进行切面织入，在实际调用前先进行缓存查询。<a href="http://markey.cc/2018/11/26/SpringBoot%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%EF%BC%88%E5%9F%BA%E4%BA%8EAOP%E5%AE%9E%E7%8E%B0%EF%BC%89/" target="_blank" rel="noopener">注解切面简介</a></p>
-<h2 id="Spring-Cache缺陷："><a href="#Spring-Cache缺陷：" class="headerlink" title="Spring Cache缺陷："></a>Spring Cache缺陷：</h2><ul>
-<li>使用缓存的类必须是Bean，否则无法注入切面。</li>
-<li>必须是不同Bean之间的方法调用，否则无法触发切面。<a href="https://my.oschina.net/longyuan/blog/714355" target="_blank" rel="noopener">规避方法</a></li>
-</ul>
-<h1 id="Spring-Cache使用方法"><a href="#Spring-Cache使用方法" class="headerlink" title="Spring Cache使用方法"></a>Spring Cache使用方法</h1><ol>
-<li>引入Spring Cache依赖</li>
-<li>使用@EnableCaching 注解开启缓存功能</li>
-<li>在需要缓存的方法上使用@CacheConfig 定义缓存配置</li>
+        <p>本文将举例说明<strong>如何通过构造方法来处理注解，实现属性注入</strong></p>
+<ol>
+<li>自定义注解Name</li>
+<li>实现超类，定义注解处理方法</li>
+<li>子类使用注解</li>
 </ol>
-<h2 id="引入Spring-Cache依赖"><a href="#引入Spring-Cache依赖" class="headerlink" title="引入Spring Cache依赖"></a>引入Spring Cache依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-cache&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="开启缓存功能"><a href="#开启缓存功能" class="headerlink" title="开启缓存功能"></a>开启缓存功能</h2><p>在SpringBoot的主类上增加注解@EnableCaching</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication</span><br><span class="line">@EnableCaching</span><br><span class="line">public class IoAppBuilderApplication &#123;</span><br><span class="line">    SpringApplication.run(Application.class, args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="缓存配置"><a href="#缓存配置" class="headerlink" title="缓存配置"></a>缓存配置</h2><p>在需要使用缓存的方法上进行缓存配置。<br>例如频繁调用方法A的场景下，希望每次调用前先进行缓存查找，没有缓存情况下再进行实际调用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Cacheable(value = &quot;getProduct&quot;, key = &quot;#deviceType + &apos;_&apos; + #manufacturerId + &apos;_&apos; + #model + &apos;_&apos; + #protocolType&quot;)</span><br><span class="line">    public ProductDTO getProduct(String appId, String deviceType, String manufacturerId, String model, String protocolType) &#123;</span><br><span class="line">    /***/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h2><p>| value | 必填 | 缓存的命名空间 |<br>| key | 可选 | 指定一个唯一的key（在缓存命名空间中），使用SpEL表达式 |<br>| condition | 可选 | 限定条件，哪种情况使用缓存，使用SpEL表达式 |<br>| unless | 可选 | 限定条件，哪种情况下不使用缓存，使用SpEL表达式 |</p>
-<p><a href="https://segmentfault.com/a/1190000016961342" target="_blank" rel="noopener">配置参考</a></p>
-<h1 id="配置无效原因"><a href="#配置无效原因" class="headerlink" title="配置无效原因"></a>配置无效原因</h1><p>有时候会发现配置了缓存之后并没有生效，以下是在实际使用过程中发现的可能原因，供参考。</p>
-<h2 id="服务类内部方法调用并不触发缓存动作"><a href="#服务类内部方法调用并不触发缓存动作" class="headerlink" title="服务类内部方法调用并不触发缓存动作"></a>服务类内部方法调用并不触发缓存动作</h2><p>因为Spring Cache基于切面，所以内部方法调用由于不会调用切面，导致缓存不生效。<a href="https://my.oschina.net/longyuan/blog/714355" target="_blank" rel="noopener">规避方法</a></p>
-<p>如下示例缓存不生效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class test &#123;</span><br><span class="line"></span><br><span class="line">    @Cacheable</span><br><span class="line">    public void A() &#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void B() &#123;</span><br><span class="line">        A();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="方法未在接口中定义"><a href="#方法未在接口中定义" class="headerlink" title="方法未在接口中定义"></a>方法未在接口中定义</h2><p>Spring把实现类装载成为Bean的时候，会用代理包装一下，所以从Spring Bean的角度看，只有接口里面的方法是可见的，其它的都隐藏了，自然课看不到实现类里面的非接口方法，@Cacheable不起作用。<a href="https://blog.csdn.net/kimylrong/article/details/50126979" target="_blank" rel="noopener">规避方法</a></p>
+<h1 id="自定义注解Name"><a href="#自定义注解Name" class="headerlink" title="自定义注解Name"></a>自定义注解Name</h1><p>定义一个注解“Name”，Name注解可以接收一个String类型的属性，并且可以使用在类或者属性上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Target(&#123;ElementType.TYPE, ElementType.FIELD&#125;)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Documented</span><br><span class="line">@Component</span><br><span class="line">public @interface Name &#123;</span><br><span class="line"></span><br><span class="line">    String value() default &quot;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="超类实现"><a href="#超类实现" class="headerlink" title="超类实现"></a>超类实现</h1><p>实现一个超类Person，并在Person的构造方法中使用Java反射机制注入属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Person &#123;</span><br><span class="line"></span><br><span class="line">    public Person() &#123;</span><br><span class="line">        setName(this.getClass());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setName(Class clazz) &#123;</span><br><span class="line">        //处理注解在类上</span><br><span class="line">        if (clazz.isAnnotationPresent(Name.class)) &#123;</span><br><span class="line">            Name annotation = (Name) clazz.getAnnotation(Name.class);</span><br><span class="line">            try &#123;</span><br><span class="line">                Field field = clazz.getDeclaredField(&quot;name&quot;);</span><br><span class="line">                field.setAccessible(true);</span><br><span class="line">                field.set(this, annotation.value());</span><br><span class="line">            &#125; catch (NoSuchFieldException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; catch (IllegalAccessException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        //处理注解在属性上</span><br><span class="line">        Field[] declaredFields = clazz.getDeclaredFields();</span><br><span class="line">        for (Field declaredField : declaredFields) &#123;</span><br><span class="line">            Name annotation = declaredField.getAnnotation(Name.class);</span><br><span class="line">            if (null == annotation) &#123;</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">            declaredField.setAccessible(true);</span><br><span class="line">            try &#123;</span><br><span class="line">                declaredField.set(this, annotation.value());</span><br><span class="line">            &#125; catch (IllegalAccessException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="子类使用自定义注解"><a href="#子类使用自定义注解" class="headerlink" title="子类使用自定义注解"></a>子类使用自定义注解</h1><p>定义类Xiaolv，并继承Person，Xiaolv类用@Name注解修饰（为name属性注入值为“小绿”）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Name(&quot;小绿&quot;)</span><br><span class="line">public class Xiaolv extends Person&#123;</span><br><span class="line">    </span><br><span class="line">    private String name;</span><br><span class="line"></span><br><span class="line">    public void sayHi() &#123;</span><br><span class="line">        System.out.println(&quot;hello, my name is &quot; + name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试一下</p>
+<p>如下例子会打印出：<br>hello, my name is 小绿</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">@SpringBootTest</span><br><span class="line">public class HelloTest &#123;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void HelloXiaolvTest() &#123;</span><br><span class="line">        Xiaolv xiaolv = new Xiaolv();</span><br><span class="line">        xiaolv.sayHi();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="子类属性使用自定义注解"><a href="#子类属性使用自定义注解" class="headerlink" title="子类属性使用自定义注解"></a>子类属性使用自定义注解</h1><p>定义类Xiaolan，并继承Person，Xiaolan类的属性name用@Name注解修饰（为name属性注入值为“小绿”）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Xiaolan extends Person&#123;</span><br><span class="line"></span><br><span class="line">    @Name(&quot;小蓝&quot;)</span><br><span class="line">    private String name;</span><br><span class="line"></span><br><span class="line">    public void sayHi() &#123;</span><br><span class="line">        System.out.println(&quot;hello, my name is &quot; + name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试一下</p>
+<p>如下例子会打印出：<br>hello, my name is 小蓝</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">@SpringBootTest</span><br><span class="line">public class HelloTest &#123;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void HelloXiaolanTest() &#123;</span><br><span class="line">        Xiaolan xiaolan = new Xiaolan();</span><br><span class="line">        xiaolan.sayHi();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本文举例说明了一种处理自定义注解的方式，通过类构造器在对象创建后注入属性。</p>
+<p>在实际开发中，处理注解还有其他多种方式，各有优缺点。</p>
+<p>例如：</p>
+<ul>
+<li><p>在Bean的后置处理器中处理注解<br>  通过实现Bean的后置处理器方法，配合Java反射。<br>  这种注解可以使用在类、方法、属性上。<br>  局限性是这种注解只能在Spring Bean中使用。<br>  参考<a href="http://markey.cc/2018/11/24/SpringBoot%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/" target="_blank" rel="noopener">SpringBoot之自定义注解（基于BeanPostProcessor接口实现）</a></p>
+</li>
+<li><p>通过Spring AOP处理<br>  原理是通过注解来定义切点。<br>  优点是编写简单。<br>  但这种注解也只能使用在Spring Bean中，且只能作用于方法上<br>  参考<a href="http://markey.cc/2018/11/26/SpringBoot%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%EF%BC%88%E5%9F%BA%E4%BA%8EAOP%E5%AE%9E%E7%8E%B0%EF%BC%89/" target="_blank" rel="noopener">SpringBoot之自定义注解（基于AOP实现）</a></p>
+</li>
+<li><p>通过AspectJ切面处理<br>  通过SspectJ切面编程实现，类似SPring AOP切面。而已没有只能作用在方法上的局限</p>
+</li>
+<li><p>通过Spring配置类处理<br>  通过配置类实现在Spring启动过程中处理注解，配置Java反射机制来注入静态变量。<br>  局限性是只能注入静态属性。<br>  参考<a href="http://markey.cc/2019/02/16/SpringBoot%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%EF%BC%88%E5%9F%BA%E4%BA%8E%E5%8F%8D%E5%B0%84%E5%92%8C%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F%EF%BC%89/" target="_blank" rel="noopener">自定义注解注入属性值（基于反射和静态变量）</a></p>
+</li>
+</ul>
 
       
     </div>
@@ -418,7 +429,7 @@
           
             <a href="/tags/笔记/" rel="tag"># 笔记</a>
           
-            <a href="/tags/Cache/" rel="tag"># Cache</a>
+            <a href="/tags/自定义注解/" rel="tag"># 自定义注解</a>
           
         </div>
       
@@ -446,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/05/前端入门学习笔记/" rel="next" title="前端入门学习笔记">
-                <i class="fa fa-chevron-left"></i> 前端入门学习笔记
+              <a href="/2019/02/16/SpringBoot之自定义注解（基于反射和静态变量）/" rel="next" title="自定义注解注入属性值（基于反射和静态变量）">
+                <i class="fa fa-chevron-left"></i> 自定义注解注入属性值（基于反射和静态变量）
               </a>
             
           </div>
@@ -455,10 +466,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/11/推荐一款微信小程序《诗词万卷》/" rel="prev" title="推荐一款微信小程序《诗词万卷》">
-                推荐一款微信小程序《诗词万卷》 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -603,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Cache简介"><span class="nav-number">1.</span> <span class="nav-text">Spring Cache简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Cache的简单原理"><span class="nav-number">1.1.</span> <span class="nav-text">Spring Cache的简单原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Cache缺陷："><span class="nav-number">1.2.</span> <span class="nav-text">Spring Cache缺陷：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Cache使用方法"><span class="nav-number">2.</span> <span class="nav-text">Spring Cache使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入Spring-Cache依赖"><span class="nav-number">2.1.</span> <span class="nav-text">引入Spring Cache依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启缓存功能"><span class="nav-number">2.2.</span> <span class="nav-text">开启缓存功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存配置"><span class="nav-number">2.3.</span> <span class="nav-text">缓存配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置说明"><span class="nav-number">2.4.</span> <span class="nav-text">配置说明</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置无效原因"><span class="nav-number">3.</span> <span class="nav-text">配置无效原因</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务类内部方法调用并不触发缓存动作"><span class="nav-number">3.1.</span> <span class="nav-text">服务类内部方法调用并不触发缓存动作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法未在接口中定义"><span class="nav-number">3.2.</span> <span class="nav-text">方法未在接口中定义</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义注解Name"><span class="nav-number">1.</span> <span class="nav-text">自定义注解Name</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#超类实现"><span class="nav-number">2.</span> <span class="nav-text">超类实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#子类使用自定义注解"><span class="nav-number">3.</span> <span class="nav-text">子类使用自定义注解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#子类属性使用自定义注解"><span class="nav-number">4.</span> <span class="nav-text">子类属性使用自定义注解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>

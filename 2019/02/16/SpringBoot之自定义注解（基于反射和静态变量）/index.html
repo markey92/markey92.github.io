@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="如何通过Spring配置类处理注解 定义注解 定义一个Spring配置类 在配置类中使用Java反射注入静态属性  定义注解定义一个注解“Name”，Name注解可以接收一个String类型的属性，并且可以使用在类或者属性上 12345678@Target(&amp;#123;ElementType.TYPE, ElementType.FIELD&amp;#125;)@Retention(RetentionPol">
+<meta name="description" content="本文将举例说明，如果自定义一个注解Name，并通过注解给类的属性注入值 如何通过Spring配置类处理注解 定义注解 定义一个Spring配置类 在配置类中使用Java反射注入静态属性  定义注解定义一个注解“Name”，Name注解可以接收一个String类型的属性，并且可以使用在类或者属性上 12345678@Target(&amp;#123;ElementType.TYPE, ElementType">
 <meta name="keywords" content="SpringBoot,SpringBoot注解,笔记,自定义注解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot之自定义注解（基于反射和静态变量）">
+<meta property="og:title" content="自定义注解注入属性值（基于反射和静态变量）">
 <meta property="og:url" content="http://yoursite.com/2019/02/16/SpringBoot之自定义注解（基于反射和静态变量）/index.html">
 <meta property="og:site_name" content="MaKai&#39;s zone">
-<meta property="og:description" content="如何通过Spring配置类处理注解 定义注解 定义一个Spring配置类 在配置类中使用Java反射注入静态属性  定义注解定义一个注解“Name”，Name注解可以接收一个String类型的属性，并且可以使用在类或者属性上 12345678@Target(&amp;#123;ElementType.TYPE, ElementType.FIELD&amp;#125;)@Retention(RetentionPol">
+<meta property="og:description" content="本文将举例说明，如果自定义一个注解Name，并通过注解给类的属性注入值 如何通过Spring配置类处理注解 定义注解 定义一个Spring配置类 在配置类中使用Java反射注入静态属性  定义注解定义一个注解“Name”，Name注解可以接收一个String类型的属性，并且可以使用在类或者属性上 12345678@Target(&amp;#123;ElementType.TYPE, ElementType">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-16T16:54:05.450Z">
+<meta property="og:updated_time" content="2019-02-16T17:05:33.049Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot之自定义注解（基于反射和静态变量）">
-<meta name="twitter:description" content="如何通过Spring配置类处理注解 定义注解 定义一个Spring配置类 在配置类中使用Java反射注入静态属性  定义注解定义一个注解“Name”，Name注解可以接收一个String类型的属性，并且可以使用在类或者属性上 12345678@Target(&amp;#123;ElementType.TYPE, ElementType.FIELD&amp;#125;)@Retention(RetentionPol">
+<meta name="twitter:title" content="自定义注解注入属性值（基于反射和静态变量）">
+<meta name="twitter:description" content="本文将举例说明，如果自定义一个注解Name，并通过注解给类的属性注入值 如何通过Spring配置类处理注解 定义注解 定义一个Spring配置类 在配置类中使用Java反射注入静态属性  定义注解定义一个注解“Name”，Name注解可以接收一个String类型的属性，并且可以使用在类或者属性上 12345678@Target(&amp;#123;ElementType.TYPE, ElementType">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>SpringBoot之自定义注解（基于反射和静态变量） | MaKai's zone</title>
+  <title>自定义注解注入属性值（基于反射和静态变量） | MaKai's zone</title>
   
 
 
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SpringBoot之自定义注解（基于反射和静态变量）</h1>
+          <h1 class="post-title" itemprop="name headline">自定义注解注入属性值（基于反射和静态变量）</h1>
         
 
         <div class="post-meta">
@@ -342,7 +342,7 @@
 
           
           
-             <span id="/2019/02/16/SpringBoot之自定义注解（基于反射和静态变量）/" class="leancloud_visitors" data-flag-title="SpringBoot之自定义注解（基于反射和静态变量）">
+             <span id="/2019/02/16/SpringBoot之自定义注解（基于反射和静态变量）/" class="leancloud_visitors" data-flag-title="自定义注解注入属性值（基于反射和静态变量）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -373,7 +373,8 @@
       
 
       
-        <h1 id="如何通过Spring配置类处理注解"><a href="#如何通过Spring配置类处理注解" class="headerlink" title="如何通过Spring配置类处理注解"></a>如何通过Spring配置类处理注解</h1><ol>
+        <p>本文将举例说明，如果自定义一个注解Name，并通过注解给类的属性注入值</p>
+<h1 id="如何通过Spring配置类处理注解"><a href="#如何通过Spring配置类处理注解" class="headerlink" title="如何通过Spring配置类处理注解"></a>如何通过Spring配置类处理注解</h1><ol>
 <li>定义注解</li>
 <li>定义一个Spring配置类</li>
 <li>在配置类中使用Java反射注入静态属性</li>
@@ -479,6 +480,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/02/17/自定义注解注入属性值（基于类构造方法）/" rel="prev" title="自定义注解注入属性值（基于类构造方法）">
+                自定义注解注入属性值（基于类构造方法） <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -557,7 +562,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
